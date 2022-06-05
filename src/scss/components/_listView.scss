@@ -1,0 +1,428 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+@import "../utils/mixins";
+
+.list-view {
+    .list-view-header {
+        p {
+            color: $darkTheme;
+            padding: 0 10px 12px;
+            margin: 0;
+            font: {
+                size: 12px;
+                weight: 600;
+            }
+            @include text-truncate;
+            i {
+                float: right;
+                font-size: 12px;
+                padding: 5px 5px 0;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .list-view-filter {
+        .form-group {
+            padding: 0 10px;
+            margin-bottom: 12px;
+            .form-control {
+                border-radius: 5px 0 0 5px;
+                padding: 6px 10px;
+                font-size: 12px;
+                height: 32px !important;
+                min-height: auto;
+                width: calc(100% - 28px);
+            }
+            .btn-light {
+                @include position-top-right;
+                right: 10px;
+                padding: 0;
+                width: 28px;
+                height: 32px;
+                font-size: 11px;
+                border-width: 1px 1px 1px 0;
+                border-radius: 0 5px 5px 0;
+                border-color: $border-color;
+            }
+            &.form-group-sort {
+                .form-control {
+                    width: 100%;
+                    border-radius: 5px;
+                }
+            }
+        }
+        .dropdown {
+            @include position-top-right;
+            &:hover {
+                .dropdown-menu {
+                    display: block;
+                    @include transition-3s;
+                }
+            }
+        }
+        .dropdown-menu {
+            @include transition-3s;
+            right: 10px;
+            left: initial !important;
+            top: 30px !important;
+            margin: 0;
+            transform: none !important;
+            will-change: none !important;
+            min-width: 130px;
+            padding: 0;
+            border-radius: 7px;
+            border: 1px solid $border-color;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+            p {
+                padding: 7px 12px;
+                background-color: $light-bg;
+                color: $text-color;
+                margin: 0;
+                font-size: 11px;
+                font-weight: 600;
+                border-bottom: 1px solid $border-color;
+            }
+            li {
+                padding: 10px 15px;
+                font-size: 12px;
+                color: $content-color;
+                i {
+                    margin-right: 5px;
+                }
+                &:hover {
+                    color: $darkTheme;
+                    cursor: pointer;
+                }
+                &.active {
+                    color: $theme;
+                }
+            }
+        }
+    }
+
+    .list-view-body {
+        .list-view-item {
+            background-color: $white;
+            position: relative;
+            box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            margin-bottom: 10px;
+            
+            @include transition-3s;
+            &:hover {
+                box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.15);
+                @include transition-3s;
+            }
+
+            ul {
+                li {
+                    padding: 12px 10px;
+                    @include transition-3s;
+                    position: relative;
+                   
+                    h6 {
+                        color: $text-color;
+                        margin: 0;
+                        font-size: 13px;
+                        @include text-truncate;
+                        &.active:hover {
+                            cursor: pointer;
+                            text-decoration: underline;
+                        }
+                    }
+                    p {
+                        font-size: 11px;
+                        margin: 5px 0 0;
+                        color: $content-color;
+                        @include text-truncate;
+                    }
+                }
+            }
+
+            .list-view-icon {
+                width: 48px;
+                height: 48px;
+                border: 1px solid $border-color;
+                padding: 5px;
+                @include transform-top-center-align;
+                border-radius: 5px;
+                @include flex-center-align;
+                text-align: center;
+                @include transition-3s;
+                img {
+                    @include image;
+                }
+                i {
+                    font-size: 16px;
+                    color: $darkTheme;
+                }
+                span {
+                    @include position-top-left;
+                    top: -6px;
+                    font-size: 18px;
+                    color: $yellow;
+                }
+                &.list-view-icon-link:hover {
+                    cursor: pointer;
+                    border-color: $theme;
+                    @include transition-3s;
+                }
+            }
+
+            .list-view-icon-box {
+                padding-left: 60px;
+            }
+
+            .list-git-icon {
+                position: absolute;
+                top: -7px;
+                left: -7px;
+                width: 20px;
+                height: 20px;
+                padding: 2px;
+                @include flex-center-align;
+                @include border-radius-50;
+                font-size: 14px;
+                z-index: 1;
+            }
+
+            .list-view-badge {
+                margin: 0;
+                padding: 3px 10px;
+                font: {
+                    size: 12px;
+                    weight: 600;
+                }
+                display: inline-block;
+                &.list-view-badge-link:hover {
+                    cursor: pointer;
+                    text-decoration: underline;
+                }
+                &.list-view-badge-full {
+                    max-width: 100%;
+                    @include text-truncate;
+                }
+            }
+
+            .list-view-pill {
+                margin: 0;
+                padding: 5px 8px;
+                display: inline-block;
+                line-height: normal;
+                font: {
+                    size: 10px;
+                    weight: 600;
+                }
+                border: 1px solid transparent;
+                max-width: 100%;
+                @include text-truncate;
+                &.alert-success {
+                    background-color: #dbf0e0;
+                }
+                &.alert-danger {
+                    background-color: #fbe9eb;
+                }
+                &.alert-dark {
+                    background-color: #e4e6e7;
+                }
+            }
+
+            .list-view-pill-wrapper {
+                padding-right: 30px;
+                position: relative;
+                .list-view-pill-count {
+                    width: 28px;
+                    height: 28px;
+                    @include border-radius-50;
+                    background-color: $white;
+                    border: 1px solid $border-color;
+                    color: $theme;
+                    @include flex-center-align;
+                    font-size: 11px;
+                    font-weight: 600;
+                    @include position-top-right;
+                    &:hover {
+                        cursor: pointer;
+                        background-color: $theme;
+                        color: $white;
+                    }
+                }
+                .dropdown-menu {
+                    padding: 15px;
+                    width: 200px;
+                    top: -7px !important;
+                    left: calc(100% + 15px) !important;
+                    transform: none !important;
+                    border: 1px solid $border-color;
+                    border-radius: 6px;
+                    margin: 0;
+                    li {
+                        margin-bottom: 5px;
+                        &:last-of-type {
+                            margin-bottom: 0;
+                        }
+                    }
+                    &::before {
+                        content: '\f0d9';
+                        font-family: "Font Awesome 5 Pro";
+                        position: absolute;
+                        top: 0;
+                        left: -11px;
+                        font-size: 28px;
+                        color: $border-color;
+                        font-weight: 900;
+                    }
+                }
+            }
+
+            .list-view-badge-pill {
+                margin: 0;
+                padding: 5px 10px;
+                line-height: normal;
+                font: {
+                    size: 11px;
+                    weight: 400;
+                }
+                border: 2px solid $border-color;
+                background-color: $white;
+                max-width: 100%;
+                @include text-truncate;
+            }
+
+            .list-view-initial {
+                span {
+                    width: 28px;
+                    height: 28px;
+                    @include border-radius-50;
+                    border: 1px solid $border-color-dark;
+                    font-size: 13px;
+                    display: inline-block;
+                    margin-right: 3px;
+                    @include flex-center-align;
+                    color: $content-color;
+                    &:last-of-type {
+                        margin-right: 0;
+                    }
+                    &.active {
+                        border-color: $content-color;
+                        background-color: $green;
+                        color: $white;
+                    }
+                }
+            }
+
+            .list-view-alarm-count {
+                position: relative;
+                display: inline-block;
+                padding-left: 15px;
+                padding-top: 2px;
+                height: 26px;
+                i {
+                    font-size: 20px;
+                    color: $content-color;
+                }
+                .badge {
+                    width: 22px;
+                    height: 22px;
+                    @include border-radius-50;
+                    padding: 0;
+                    font-size: 9px;
+                    text-align: center;
+                    line-height: 20px;
+                    position: absolute;
+                    top: -8px;
+                    right: -10px;
+                    &.badge-light {
+                        border: 1px solid $border-color;
+                    }
+                }
+            }
+
+            .list-view-collapse-icon {
+                color: $theme;
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                cursor: pointer;
+                @include transition-3s;
+                &:hover {
+                    color: $darkTheme;
+                }
+                &.collapsed {
+                    transform: rotate(180deg);
+                    @include transition-3s;
+                }
+            }
+        }
+
+        .list-view-border {
+            z-index: 1;
+            position: absolute;
+            top: 3px;
+            bottom: 3px;
+            left: 1px;
+            width: 4px;
+            border-radius: 5px;
+            &.list-view-border-green {
+                background-color: $green;
+            }
+            &.list-view-border-red {
+                background-color: $red;
+            }
+            &.list-view-border-yellow {
+                background-color: $yellow;
+            }
+            &.list-view-border-gray {
+                background-color: $light-gray;
+            }
+            &.list-view-border-orange {
+                background-color: $orange;
+            }
+            &.list-view-border-cyan {
+                background-color: $cyan;
+            }
+        }
+    }
+
+    .list-view-loader {
+        height: 400px;
+        @include card-box;
+        @include flex-center-align;
+        text-align: center;
+        .list-view-loader-content {
+            i {
+                font-size: 26px;
+                color: $theme;
+                margin-bottom: 10px;
+            }
+            h6 {
+                color: $theme;
+            }
+        }
+    }
+
+    .list-view-empty {
+        height: 400px;
+        @include card-box;
+        @include flex-center-align;
+        text-align: center;
+        h6 {
+            color: $text-color;
+            margin: 0;
+        }
+    }
+}
+
+#manageUsers {
+    .react-tel-input {
+        .form-control {
+            font-size: 11px;
+        }
+        .selected-flag {
+            height: 16px;
+        }
+    }
+}

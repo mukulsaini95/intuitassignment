@@ -1,0 +1,67 @@
+// themes
+@import "themes/theme";
+@import "themes/margins";
+@import "themes/paddings";
+@import "themes/fonts";
+@import "themes/flex";
+@import "themes/variables";
+@import "themes/buttons";
+
+// base modules
+@import "base/custom";
+@import "base/loader";
+
+// layout
+@import "layout/content";
+@import "layout/navbar";
+@import "layout/header";
+@import "layout/footer";
+@import "layout/errors";
+
+// components
+@import "components/listView";
+@import "components/cardView";
+@import "components/forms";
+@import "components/table";
+@import "components/modal";
+@import "components/radioBox";
+@import "components/checkBox";
+@import "components/slidingPane";
+@import "components/toggleSwitch";
+@import "components/locationMap";
+@import "components/themeSelection";
+
+// pages
+@import "pages/login";
+@import "pages/tenant";
+@import "pages/project";
+@import "pages/myAccount";
+@import "pages/connector";
+@import "pages/dataAttribute";
+@import "pages/deviceGroup";
+@import "pages/simulation";
+@import "pages/pageStudio";
+@import "pages/applicationBuilder";
+@import "pages/apiGateway.scss";
+@import "pages/eventList";
+@import "pages/faas";
+@import "pages/etlConfig";
+@import "pages/mlStudio";
+@import "pages/widgetStudio.scss";
+@import "pages/collection";
+@import "pages/deepLearning.scss";
+@import "pages/deviceDignostics.scss";
+@import "pages/autoML";
+@import "pages/manageDockerCred";
+@import "pages/faceRecognition";
+
+// widgets
+@import "widgets/widgets";
+@import "widgets/deviceAlarm";
+@import "widgets/deviceDetail";
+@import "widgets/deviceMap";
+@import "widgets/eventHistory";
+@import "widgets/deviceCounter";
+
+// application
+@import "pages/endApplication";

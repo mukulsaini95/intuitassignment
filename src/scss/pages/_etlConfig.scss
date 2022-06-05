@@ -1,0 +1,391 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+@import "../utils/mixins";
+
+// etl source selection
+.etl-source-list {
+    height: 332px;
+    overflow-y: auto;
+    border-right: 1px solid $border-color;
+    .etl-source-wrapper {
+        border: {
+            style: solid;
+            width: 1px;
+            color: $border-color;
+            radius: 6px;
+        }
+        padding: 10px 15px 10px 65px;
+        position: relative;
+        margin: 0 10px 10px 0;
+        @include transition-3s;
+        .etl-source-image {
+            width: 50px;
+            @include position-top-bottom;
+            left: 0;
+            border-right: 1px solid $border-color;
+            border-radius: 6px 0 0 6px;
+            img {
+                @include image;
+                padding: 6px;
+            }
+        }
+        h6 {
+            font-size: 13px;
+            font-weight: 600;
+            color: $text-color;
+            margin: 0 0 5px;
+            @include text-truncate;
+            @include transition-3s;
+        }
+        p {
+            margin: 0;
+            color: $content-color;
+            font-size: 11px;
+            @include text-truncate;
+        }
+        span {
+            @include position-bottom-right;
+            right: 10px;
+            bottom: 10px;
+            font-size: 12px;
+            color: $theme;
+            display: none;
+        }
+        &:hover {
+            border-color: $border-color-dark;
+            @include transition-3s;
+            cursor: pointer;
+            h6 {
+                color: $theme;
+                @include transition-3s;
+            }
+        }
+        &.active {
+            border-color: $light-gray;
+            .etl-source-image {
+                background-color: $light-bg;
+            }
+            span {
+                display: block;
+            }
+            h6 {
+                color: $theme;
+            }
+        }
+    }
+}
+.etl-source-table {
+    height: 332px;
+    overflow-y: auto;
+}
+.etl-source-table-empty {
+    height: 332px;
+    @include flex-center-align;
+    text-align: center;
+    border: 3px solid $light-bg;
+    border-radius: 10px;
+    img {
+        width: 90px;
+        margin-bottom: 10px;
+    }
+}
+// end etl source selection
+
+// etl sink point
+.etl-sink-wrapper {
+    background-color: $light-bg;
+    border-radius: 5px;
+    padding: 20px;
+    border: 1px dashed $border-color;
+    .connector-form-list {
+        &::before {
+            height: calc(100% - 96px);
+            border-color: $border-color-dark;
+        }
+        .connector-form-body {
+            padding: 10px 20px 0;
+            border: 1px dashed $border-color;
+            border-radius: 5px;
+            margin: 0 0 10px 30px;
+            background-color: $white;
+            ul {
+                &::before {
+                    left: -47px;
+                    border-color: $border-color-dark;
+                }
+                &::after {
+                    left: -25px;
+                    background-color: $border-color-dark;
+                }
+            }
+        }
+    }
+    .etl-sink-overlay {
+        background-color: rgba(0, 0, 0, 0.5);
+        @include position-all-side;
+        border-radius: 4px;
+        .btn {
+            @include transform-center-align;
+        }
+    } 
+}
+// end etl sink point
+
+// etl definition
+.etl-definition-wrapper.form-content-box {
+    .form-content-header {
+        .button-group, .toggle-switch-wrapper {
+            @include transform-top-center-align;
+            right: 45px;
+            button {
+                position: relative;
+                top: 0;
+                right: 0;
+                transform: none;
+            }
+        }
+        .toggle-switch-wrapper {
+            right: 120px;
+        }
+    }
+
+    .etl-query-wrapper {
+        position: relative;
+        padding: 10px;
+        border: 1px dashed $border-color;
+        border-radius: 5px;
+        background-color: $light-bg;
+        margin-bottom: 20px;
+        .etl-query-type {
+            position: absolute;
+            top: -13px;
+            left: 0;
+            z-index: 1;
+        }
+        .etl-query-box {
+            padding: 30px 15px 20px;
+            @include card-box;
+            margin-bottom: 0;
+            .btn-link {
+                @include position-top-right;
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+.etl-attribute-tree {
+    height: calc(100% - 35px);
+    overflow-y: auto;
+    padding-top: 5px;
+    ul {
+        @include list-style-none;
+        position: relative;
+        li {
+            position: relative;
+            padding-top: 12px;
+            &:first-of-type {
+                padding-top: 0;
+            }
+            .etl-attribute-tree-box {
+                border: 1px dashed $border-color;
+                border-radius: 4px;
+                color: $text-color;
+                padding: 8px 30px 8px 15px;
+                position: relative;
+                background-color: $white;
+                p {
+                    margin-bottom: 0;
+                    @include text-truncate;
+                    span {
+                        @include position-bottom-right;
+                        display: inline-block;
+                        margin: 0 3px 3px 0;
+                        font-size: 10px;
+                        color: $blue;
+                    }
+                }
+                .button-group {
+                    @include position-top-right;
+                    top: -8px;
+                    z-index: 2;
+                    .btn-link {
+                        padding: 0;
+                    }
+                }
+                &:hover {
+                    color: $theme;
+                    cursor: pointer;
+                    background-color: $light-bg;
+                    border-color: $border-color-dark;
+                }
+            }
+            .form-group {
+                margin: 0;
+                .btn {
+                    padding: 5px 7px;
+                    i {
+                        font-size: 12px;
+                    }
+                }
+            }
+            ul {
+                li {
+                    padding-left: 20px;
+                    &::before {
+                        content: '';
+                        height: 100%;
+                        width: 1px;
+                        background-color: $border-color;
+                        position: absolute;
+                        top: 0;
+                        left: 7px;
+                    }
+                    &::after {
+                        content: '';
+                        width: 13px;
+                        height: 1px;
+                        background-color: $border-color;
+                        position: absolute;
+                        top: 30px;
+                        left: 8px;
+                    }
+                    &:last-of-type::before {
+                        height: 31px;
+                    }
+                    &:first-of-type {
+                        padding-top: 12px;
+                    }
+                    p {
+                        &::after {
+                            content: '';
+                            width: 5px;
+                            height: 5px;
+                            @include border-radius-50;
+                            background-color: $content-color;
+                            position: absolute;
+                            top: 14px;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// end etl definition
+
+// etl debug
+.etl-debug-wrapper {
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    .debug-body {
+        height: 60vh;
+    }
+}
+// end etl debug
+
+// etl detail
+.etl-detail-wrapper {
+    ul {
+        @include list-style-none;
+        display: flex;
+        margin-top: 7px;
+        li {
+            width: 80px;
+            height: 80px;
+            border: 1px solid $border-color;
+            border-radius: 5px;
+            position: relative;
+            margin-right: 80px;
+            img {
+                padding: 5px;
+                @include image;
+            }
+            &::after {
+                content: '';
+                @include transform-top-center-align;
+                right: -80px;
+                width: 80px;
+                border-top: 3px dashed $border-color;
+            }
+            &::before {
+                content: '\f0d9';
+                @include transform-top-center-align;
+                right: -10px;
+                font-size: 24px;
+                color: $border-color-dark;
+                font-family: "Font Awesome 5 Pro";
+                font-weight: 900;
+                z-index: 1;
+            }
+            &:last-of-type {
+                margin-right: 0;
+                &::after {
+                    display: none;
+                }
+                &::before {
+                    content: '\f0da';
+                    left: -10px;
+                    right: initial;
+                }
+            }
+        }
+    }
+
+    .badge {
+        margin-top: 20px;
+        padding: 5px 15px;
+        font-size: 11px;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+     p {
+         margin-bottom: 7px;
+         color: $content-color;
+         strong {
+             color: $text-color;
+             margin-right: 5px;
+         }
+         span {
+             margin: 0 20px;
+         }
+         &:last-of-type {
+             margin-bottom: 0;
+         }
+     }
+
+    .card-body {
+        .card-loader, .card-chart-box, .card-message {
+            height: 250px;
+        }
+    }
+}
+// end etl detail
+
+// etl diagnostic
+.elt-diagnostics-detail {
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    margin: 5px 10px 5px;
+    padding: 15px 15px 0;
+    position: relative;
+    .button-group {
+        @include position-top-right;
+        right: 5px;
+        z-index: 1;
+    }
+    .card {
+        .card-body {
+            .card-chart-box {
+                height: 250px;
+            }
+        }
+    }
+}
+// end etl diagnostic

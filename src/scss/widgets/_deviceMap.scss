@@ -1,0 +1,230 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+@import "../utils/mixins";
+
+// device map view
+.device-filter-wrapper {
+    position: fixed;
+    right: 0;
+    top: 50px;
+    bottom: 35px;
+    z-index: 2;
+    width: 260px;
+    padding: 5px 12px 30px 15px;
+    background-color: $white;
+    border-right: 1px solid $border-color;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+
+    .device-filter-box {
+        border-bottom: 1px solid $border-color;
+        padding: 15px 0;
+        &:first-of-type {
+            border-bottom: 0;
+            padding-bottom: 5px;
+        }
+        h5 {
+            font-weight: 600;
+            color: $theme;
+            margin: 0 0 5px;
+            .btn {
+                color: $theme;
+                padding-left: 0;
+            }
+        }
+        h6 {
+            font-size: 11px;
+            color: $content-color;
+            margin: 0 0 15px;
+        }
+        p {
+            color: $text-color;
+            margin: 0;
+            position: relative;
+            .device-filter-collapse {
+                @include position-top-right;
+                transform: rotate(180deg);
+                @include transition-3s;
+                width: 18px;
+                height: 18px;
+                @include border-radius-50;
+                border: 1px solid $border-color;
+                @include flex-center-align;
+                font-size: 12px;
+                line-height: normal;
+                cursor: pointer;
+                &:hover {
+                    background-color: $light-bg;
+                    color: $theme;
+                    border-color: $light-gray;
+                }
+                &.collapsed {
+                    transform: none;
+                    @include transition-3s;
+                }
+            }
+            .button-group {
+                @include position-top-right;
+                right: 25px;
+                .btn-link {
+                    font-size: 11px;
+                    font-weight: 600;
+                    padding: 0;
+                    line-height: normal;
+                }
+            }
+        }
+        .device-filter-body {
+            padding: 10px 5px;
+            margin-top: 10px;
+            background-color: $light-bg;
+            border-radius: 5px;
+            .form-group-label {
+                position: relative;
+                display: block;
+                .toggle-switch-wrapper {
+                    @include transform-top-center-align;
+                    right: 10px;
+                }
+            }
+            .inner-loader-wrapper {
+                height: 100px;
+            }
+            .radio-button {
+                display: inline-block;
+                margin: 0 5px 5px 0;
+                .radio-button-text {
+                    font-size: 11px;
+                }
+            }
+        }
+        .device-filter-group {
+            li {
+                border: 1px solid $border-color;
+                border-radius: 20px;
+                color: $content-color;
+                font-size: 11px;
+                padding: 3px 10px;
+                margin: 0 5px 5px 0;
+                @include transition-3s;
+                max-width: 100%;
+                word-break: break-all;
+                &:hover {
+                    @include transition-3s;
+                    border-color: $text-color;
+                    color: $text-color;
+                    cursor: pointer;
+                }
+                &.active, &.active:hover {
+                    background-color: $theme;
+                    color: $white;
+                    @include transition-3s;
+                    border-color: $darkTheme;
+                    cursor: default;
+                }
+            }
+        }
+        .device-filter-tags {
+            li {
+                flex: 0 0 50%;
+                max-width: 50%;
+                .radio-button {
+                    .radio-button-text {
+                        font-size: 11px;
+                    }
+                }
+            }
+        }
+        .device-filter-alarms {
+            li {
+                flex: 0 0 33.33%;
+                max-width: 33.33%;
+                text-align: center;
+                border: 1px solid $border-color;
+                border-radius: 5px;
+                padding: 5px 0;
+                span {
+                    width: 28px;
+                    height: 28px;
+                    margin: 0 auto 5px;
+                    border: 1px solid $border-color;
+                    @include border-radius-50;
+                    display: block;
+                    @include flex-center-align;
+                    color: $content-color;
+                    background-color: $white;
+                }
+                p {
+                    font-size: 10px;
+                    color: $content-color;
+                }
+                &:hover {
+                    @include transition-3s;
+                    background-color: $white;
+                    cursor: pointer;
+                }
+                &.active {
+                    border-color: $border-color-dark;
+                    @include transition-3s;
+                    background-color: $white;
+                    span {
+                        background-color: $theme;
+                        border-color: $darkTheme;
+                        color: $white;
+                    }
+                    p {
+                        color: $theme;
+                    }
+                }
+            }
+        }
+    }
+}
+.device-filter-content {
+    position: relative;
+    .device-map-wrapper {
+        @include card-box;
+        margin-bottom: 0;
+        height: calc(100% - 84px);
+        padding: 5px;
+        .note-text {
+            position: absolute;
+            bottom: 35px;
+            left: 190px;
+            right: 10px;
+            z-index: 1;
+            margin-bottom: 0;
+        }
+    }
+}
+.device-card-wrapper {
+    height: calc(100vh - 245px);
+}
+.device-tag-filter {
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    padding: 10px;
+    .badge {
+        padding: 7px 12px;
+        margin: 0 5px 5px 0;
+        font-size: 11px;
+        font-weight: 600;
+        border: 2px solid transparent;
+        cursor: pointer;
+        &.badge-light {
+            border-color: $border-color;
+        }
+        &.badge-success {
+            border-color: #23903c;
+            background-color: #2db94d;
+        }
+    }
+    p {
+        margin: 10px 0;
+        text-align: center;
+    }
+}
+// end device map view
+

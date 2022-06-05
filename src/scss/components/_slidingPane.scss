@@ -1,0 +1,118 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+
+.sliding-form {
+    .slide-pane {
+        background-color: transparent;
+    }
+    .slide-pane__header {
+        display: none;
+    }
+    .slide-pane__content {
+        padding: 0;
+        overflow: initial;
+    }
+    .modal-content {
+        height: 100%;
+        border: 0;
+        border-radius: 5px;
+
+        .modal-header {
+            .modal-title {
+                padding-left: 20px;
+                .close {
+                    position: absolute;
+                    top: 10px;
+                    left: -30px;
+                    @include border-radius-50;
+                    z-index: 5;
+                }
+            }
+        }
+        .modal-body {
+            height: calc(100vh - 120px);
+            overflow-y: auto;
+
+            .navigation-box {
+                border: 1px solid $border-color;
+                border-radius: 4px;
+                padding: 10px 15px;
+                h6 {
+                    margin: 10px 0;
+                    color: $label-color;
+                    font: {
+                        size: 12px;
+                        weight: 600;
+                    };
+                    padding-bottom: 5px;
+                    border-bottom: 1px solid $border-color;
+                    @include text-truncate;
+                    padding-right: 10px;
+                    .check-text {
+                        color: $label-color;
+                        font-weight: 600;
+                    }
+                }
+                .nav-list {
+                    li {
+                        p {
+                            padding: 5px 15px;
+                            margin: 0 20px 15px 0;
+                            border: 1px solid $border-color;
+                            border-radius: 4px;
+                            color: $text-color;
+                            word-break: break-word;
+                        }
+                        .nav-sub-list {
+                            position: relative;
+                            &:before {
+                                content: "";
+                                position: absolute;
+                                top: -15px;
+                                left: 15px;
+                                border-right: 1px dashed $border-color;
+                                height: calc(100% - 20px);
+                            }
+                            li {
+                                position: relative;
+                                &:after {
+                                    content: "";
+                                    position: absolute;
+                                    top: 20px;
+                                    left: 15px;
+                                    width: 25px;
+                                    height: 0;
+                                    border-top: 1px dashed $border-color;
+                                }
+                                &:before {
+                                    content: "";
+                                    position: absolute;
+                                    top: 16px;
+                                    left: 10px;
+                                    height: 10px;
+                                    width: 10px;
+                                    @include border-radius-50;
+                                    background-color: $border-color-dark;
+                                    z-index: 1;
+                                }
+                                p {
+                                    margin-left: 40px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.slide-pane__overlay {
+    z-index: 10;
+    &.ReactModal__Overlay--after-open {
+        background-color: rgba(0, 0, 0, 0.7) !important;
+    }
+}
+

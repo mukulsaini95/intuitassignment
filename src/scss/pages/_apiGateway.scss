@@ -1,0 +1,253 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+@import "../utils/mixins";
+
+.api-wrapper {
+  height: 100%;
+  position: relative;
+
+  .api-left-wrapper {
+    @include card-box;
+    @include position-top-bottom;
+    left: 0;
+    width: 280px;
+    margin: 0;
+
+    .search-wrapper {
+      padding: 12px;
+      margin: 0;
+      min-height: 65px;
+      border-bottom: 1px solid $border-color;
+      .search-wrapper-group {
+        animation-duration: 0.4s;
+      }
+      .form-control {
+        border-radius: 30px;
+      }
+    }
+
+    ul {
+      height: calc(100% - 65px);
+      overflow-y: auto;
+      li {
+        border-bottom: 1px solid $border-color;
+        padding: 12px 35px 12px 15px;
+        position: relative;
+        @include transition-3s;
+        h6 {
+          color: $text-color;
+          margin: 0 0 5px;
+          font-weight: 600;
+          font-size: 13px;
+          @include transition-3s;
+          word-break: break-all;
+        }
+        .check-box {
+          position: absolute;
+          top: 15px;
+          left: 12px;
+        }
+        i {
+          position: absolute;
+          top: 15px;
+          right: 10px;
+        }
+        &:hover,
+        &.active {
+          cursor: pointer;
+          @include transition-3s;
+          h6 {
+            color: $theme;
+            @include transition-3s;
+          }
+        }
+        &.active {
+          background-color: $light-bg;
+        }
+      }
+    }
+  }
+
+  .api-content-wrapper {
+    padding: 12px 12px 12px 290px;
+    height: 100%;
+
+    .note-text {
+      padding-right: 120px;
+      p {
+        @include text-truncate;
+      }
+      .btn-link {
+        @include transform-top-center-align;
+        right: 0;
+      }
+    }
+
+    .search-wrapper {
+      @include position-top-right;
+      .search-wrapper-group {
+        width: 42px;
+        @include transition-3s;
+        .form-control {
+          border-radius: 5px;
+          padding: 9px 20px !important;
+        }
+        .search-wrapper-button {
+          left: initial;
+          right: 4px;
+        }
+        &:hover {
+          width: calc(100vw - 502px);
+          @include transition-3s;
+        }
+      }
+    }
+
+    .tab-content {
+      height: calc(100% - 90px);
+      overflow-y: auto;
+
+      .content-add-wrapper {
+        height: calc(100vh - 215px);
+      }
+      .api-list-view {
+        padding-top: 5px;
+        li {
+          margin-bottom: 10px;
+          .alert {
+            border-radius: 6px;
+            padding: 12px 12px 12px 50px;
+            margin: 0;
+            &.alert-primary {
+              background-color: rgba(204, 229, 255, 0.5);
+              color: #0077ff;
+              border-color: #b3d7ff;
+            }
+            &.alert-warning {
+              color: #e68a00;
+              background-color: rgba(255, 243, 205, 0.7);
+              border-color: #ffdf80;
+            }
+            &.alert-success {
+              background-color: rgba(212, 237, 218, 0.6);
+              color: #00b300;
+              border-color: #b7e1c1;
+            }
+            &.alert-info {
+              background-color: rgba(242, 230, 255, 0.7);
+              color: #a34dff;
+              border-color: #e5ccff;
+            }
+            &.alert-danger {
+              background-color: rgba(248, 215, 218, 0.6);
+              color: $red;
+            }
+          }
+          .check-box {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+          }
+          .badge {
+            position: absolute;
+            top: -5px;
+            right: 85px;
+            padding: 4px 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 10px;
+            min-width: 60px;
+            &.badge-info {
+              background-color: #bd80ff;
+            }
+          }
+          h6 {
+            font-size: 13px;
+            margin-bottom: 7px;
+            strong {
+              font-weight: 600;
+              &:hover {
+                cursor: pointer;
+                text-decoration: underline;
+              }
+              i {
+                margin-right: 10px;
+                font-size: 14px;
+                @include transition-3s;
+                color: $content-color;
+              }
+              &.collapsed {
+                i {
+                  transform: rotate(180deg);
+                  @include transition-3s;
+                }
+              }
+            }
+          }
+          p {
+            margin-bottom: 4px;
+            font-size: 10px;
+            color: $text-color;
+            line-height: normal;
+            strong {
+              color: $black;
+              margin-right: 5px;
+            }
+            span {
+              margin: 0 5px;
+              color: $black;
+            }
+            &:last-of-type {
+              margin-bottom: 0;
+            }
+          }
+          .button-group {
+            @include position-top-right;
+            top: -5px;
+            .btn {
+              padding: 3px 8px;
+              background-color: $white;
+              margin-right: 3px;
+            }
+          }
+        }
+      }
+
+      .api-detail-wrapper {
+        border-top: 0;
+        padding-left: 12px !important;
+        .api-detail-header {
+          @include card-box;
+          padding: 10px 12px;
+          position: relative;
+          margin-bottom: 10px;
+          span {
+            @include transform-top-center-align;
+            right: 10px;
+            font-size: 11px;
+            color: $cyan;
+          }
+          .btn-light {
+            padding: 3px 10px;
+            font-size: 10px;
+            font-weight: 600;
+            margin-left: 10px;
+          }
+        }
+        table tr th,
+        table tr td {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+        .api-output-box {
+          margin-left: 12px;
+          min-height: 250px;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.8);
+        }
+      }
+    }
+  }
+}

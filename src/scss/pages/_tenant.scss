@@ -1,0 +1,325 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+@import "../utils/mixins";
+
+
+// add tenant
+.add-tenant-box {
+    position: relative;
+    padding: 15px 15px 0;
+    border: {
+        style: dashed;
+        width: 1px ;
+        color: $border-color;
+        radius: 4px;
+    }
+    background-color: $light-bg;
+    button {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+    }
+}
+// end add tenant
+
+// system properties
+.collapse-wrapper {
+    @include card-box;
+    .collapse-header {
+        padding: 15px 20px;
+        color: $text-color;
+        position: relative;
+        h6 {
+            margin: 0;
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 20px;
+            .collapse-header-toggle {
+                position: absolute;
+                top: 15px;
+                right: 20px;
+                font-size: 13px;
+                color: $theme;
+                @include transition-3s;
+                &.collapsed {
+                    @include transition-3s;
+                    transform: rotate(180deg);
+                }
+            }
+        }
+        &:hover {
+            color: $theme;
+            cursor: pointer;
+        }
+    }
+    .collapse-body {
+        border-top: 1px solid $border-color;
+        padding: 15px;
+    }
+}
+// end system properties
+
+// tenant home
+.tenant-counter-list {
+    margin-bottom: 10px;
+    li {
+        flex:0 0 25%;
+        max-width: 25%;
+        padding: 10px 5px;
+        .tenant-counter-box {
+            @include card-box;
+            padding: 10px 15px;
+            border-left: 3px solid $darkTheme;
+            @include transition-3s;
+            h4 {
+                color: $darkTheme;
+                font-weight: 600;
+            }
+            p {
+                color: $content-color;
+                margin-bottom: 0;
+            }
+            .tenant-counter-icon {
+                position: absolute;
+                top: -10px;
+                right: 10px;
+                width: 45px;
+                height: 45px;
+                background-color: $theme;
+                border: 1px solid $darkTheme;
+                border-radius: 3px;
+                color: $white;
+                font-size: 20px;
+                @include flex-center-align;
+            }
+        }
+    }
+}
+.tenant-usage-list {
+    @include card-box;
+    margin-right: 5px;
+    margin-left: 5px;
+
+    .tenant-usage-content {
+        padding: 20px 15px;
+        text-align: center;
+        position: relative;
+        .tenant-usage-progress {
+            width: 70%;
+            margin: 0 auto;
+        }
+        h1 {
+            color: $text-color;
+            @include transform-center-align;
+            font: {
+                size: 40px;
+                weight: 600;
+            }
+        }
+        h6 {
+            margin: -15px 0 0;
+            color: $content-color;
+        }
+    }
+}
+// end tenant home
+
+// tenant detail
+.tenant-detail-card {
+    @include card-box;
+    .tenant-detail-card-body {
+        padding: 15px 350px 15px 125px ;
+        position: relative;
+        .tenant-icon {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            box-shadow: 2px 2px 4px rgba(0,0,0,.1);
+            margin: 0 auto 20px;
+            padding: 5px;
+            background-color: rgba(231,244,253,.65) !important;
+            i {
+                @include transform-center-align;
+                font-size: 35px;
+            }
+        }
+        h6 {
+            margin-bottom: 5px;
+            font : {
+                size:15px;
+                weight:600;
+            }
+        }
+        p {
+            margin-bottom: 5px;
+            font : {
+                size:13px;
+                weight:600;
+            }
+        }
+        .date-box {
+            width: 20%;
+            position: absolute;
+            top: 16px;
+            right: 13px;
+            background-color: $theme;
+            padding: 10px;
+            border-radius: 4px;
+            p {
+                color: $white;
+                margin: 0;
+            }
+        }
+    }
+ 
+    .tenant-content-list {
+        border-top: 1px solid $border-color;
+        li {
+            flex:0 0 20%;
+            max-width: 20%;
+            .tenant-content {
+                border-right: 1px solid $border-color;
+                padding: 10px;
+                h6 {
+                   padding: 10px;
+                   margin: 0;
+                   border-radius: 5px 5px 0 0;
+                    font : {
+                        size:14px;
+                        weight:600;
+                    }
+                }
+                .tenant-content-detail {
+                    text-align: center;
+                    display: inline-block;
+                    width: 50%;
+                    padding: 10px 0;
+                    box-shadow: 2px 2px 4px rgba(0,0,0,.1);
+                }
+            }
+        }
+    }
+    .count-badge {
+        margin: 0;
+        padding: 3px 10px;
+        font-size: 13px;
+        font-weight: 600;
+        display: inline-block;
+    }
+}
+// end tenant detail
+
+// tenant settings
+.brand-wrapper {
+    @include card-box;
+    margin: 0;
+    height: 100%;
+
+    #flexLogin.login-outer-box {
+        height: calc(100% - 60px);
+        .login-logo {
+            @include border-radius-50;
+            top: 15px;
+            border : {
+                style: dashed;
+                width: 1px;
+                color: $border-color;
+            }
+            .btn-upload {
+                @include position-bottom-right;
+            }
+        }
+        .login-form-box {
+            .login-form-text {
+                h1, h6 {
+                    border: 1px dashed $border-color;
+                    border-radius: 4px;
+                    &:hover {
+                        background-color: $light-bg;
+                        cursor: pointer;
+                    }
+                    &:focus {
+                        outline: none;
+                        border-color: $theme;
+                    }
+                }
+                h6 {
+                    padding: 5px;
+                }
+            }
+        }
+    }
+
+    .brand-theme-list {
+        @include transform-top-center-align;
+        left: 15px;
+        label {
+            font-size: 12px;
+            color: $text-color;
+            font-weight: 400;
+            margin: 0;
+            @include transform-top-center-align;
+            left: 0;
+        }
+        ul {
+            padding-left: 130px;
+            li {
+                margin-right: 10px;
+                .brand-theme-list-box {
+                    width: 35px;
+                    height: 35px;
+                    @include border-radius-50;
+                    overflow: hidden;
+                    position: relative;
+                    border: 2px solid transparent;
+                    @include transition-3s;
+                    .brand-theme-list-border {
+                        width: 18px;
+                        height: 18px;
+                        @include position-bottom-right;
+                    }
+                    &.active {
+                        border-color: $border-color-dark;
+                        transform: translateY(-2px);
+                        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+                        cursor: default;
+                        &::after {
+                            content: '\f00c';
+                            font-family: "Font Awesome 5 Pro";
+                            font-weight: 400;
+                            color: $white;
+                            @include transform-center-align;
+                            font-size: 20px;
+                        }
+                    }
+                    &:hover {
+                        cursor: pointer;
+                        transform: translateY(-2px);
+                        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+                        @include transition-3s;
+                    }
+                }
+            }
+        }
+    }
+
+    .button-group {
+        border-top: 1px solid $border-color;
+        padding: 10px 15px;
+        position: relative;
+    }
+}
+// end tenant settings
+
+// discount page
+.discount-table {
+    .form-group {
+        padding: 1px;
+    }
+}
+// end discount page

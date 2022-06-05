@@ -1,0 +1,58 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+@import "../utils/mixins";
+
+.check-box {
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 0;
+    cursor: pointer;
+    min-height: 24px;
+
+    .check-text {
+        color: $text-color;
+        line-height: 22px;
+        font-size: 12px;
+        @include text-truncate;
+        display: block;
+        width: 100%;
+    }
+    input {
+        opacity: 0;
+        @include position-top-left;
+        width: 100%;
+        height: 100%;
+        &:checked ~ .check-mark {
+            &::before {
+                content: "\2714";
+                position: absolute;
+                top: -5px;
+                right: -5px;
+                font-size: 20px;
+            }
+        }
+    }
+    .check-mark {
+        @include transform-top-center-align;
+        left: 0;
+        height: 24px;
+        width: 24px;
+        background-color: $white;
+        border: 2px solid $border-color;
+        border-radius: 4px;
+        color: $green;
+    }
+
+    &.check-box-disabled {
+        .check-mark {
+            background-color: #f0f2f4;
+            cursor: not-allowed;
+            &::before {
+                color: $border-color-dark;
+            }
+        }
+    }
+}

@@ -1,0 +1,78 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+@import "../utils/mixins";
+
+.radio-button {
+    display: block;
+    position: relative;
+    padding: 5px 10px 5px 35px;
+    margin-bottom: 0;
+    cursor: pointer;
+    background: $white;
+    border: 1px solid $border-color;
+    border-radius: 20px;
+
+    .radio-button-text {
+        color: $text-color;
+        line-height: 20px;
+        font-size: 12px;
+        text-transform: capitalize;
+        display: block;
+        @include text-truncate;
+    }
+
+    .radio-button-text-monitoring {
+        color: $text-color;
+        line-height: 20px;
+        font-size: 12px;
+        display: block;
+        word-break: break-word;
+    }
+
+    input {
+        @include position-top-left;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        cursor: pointer;
+        &:checked ~ .radio-button-mark:after {
+            display: block;
+            @include transition-3s;
+        }
+    }
+    
+    .radio-button-mark {
+        @include transform-top-center-align;
+        left: 8px;
+        height: 20px;
+        width: 20px;
+        border: 2px solid $border-color;
+        @include border-radius-50;
+        @include transition-3s;
+        &::after {
+            content: "";
+            display: none;
+            @include transform-center-align;
+            width: 12px;
+            height: 12px;
+            @include border-radius-50;
+            @include transition-3s;
+            background-color: $green;
+        }
+    }
+
+    &.radio-button-disabled {
+        cursor: not-allowed;
+        input {
+            cursor: not-allowed;
+            &:checked ~ .radio-button-mark:after {
+                background-color: $content-color;
+            }
+        }
+        .radio-button-mark {
+            background-color: $border-color-dark;
+        }
+    }
+}

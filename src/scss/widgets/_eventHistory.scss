@@ -1,0 +1,519 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+@import "../utils/mixins";
+
+// variant 1
+.event-list {
+    .infinite-scroll-component {
+        overflow: initial !important;
+    }
+    .event-list-item {
+        padding-left: 110px;
+        position: relative;
+        margin-bottom: 12px;
+
+        .event-time {
+            @include card-box;
+            @include position-top-left;
+            @include flex-center-align;
+            height: 100%;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 0;
+        }
+        .event-content {
+            @include card-box;
+            margin-bottom: 0;
+        }
+        .event-condition {
+            @include card-box;
+            height: 100%;
+            position: relative;
+            &::before, &::after {
+                content: '';
+                width: 24px;
+                height: 12px;
+                background-color: rgba(230, 242, 255, 1);
+                border-top-left-radius: 13px;
+                border-top-right-radius: 13px;
+                border: 10px solid rgba(230, 242, 255, 1);
+                border-bottom: 0;
+                @include position-top-left;
+                left: -17px;
+                transform: rotate(180deg);
+            }
+            &::after {
+                top: initial;
+                bottom: 0;
+                transform: rotate(0);
+            }
+            ul {
+                padding-left: 20px;
+                li {
+                    font-size: 12px;
+                    margin-bottom: 5px;
+                    color: $text-color;
+                    list-style: square;
+                    &:last-of-type {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+        .event-content-item {
+            padding: 10px 15px;
+            p {
+                color: $content-color;
+                margin-bottom: 5px;
+                font-size: 10px;
+                @include text-truncate;
+            }
+            h6 {
+                color: $black;
+                margin: 0;
+                font-size: 12px;
+                @include text-truncate;
+            }
+            .badge-group {
+                .badge {
+                    font-weight: 400;
+                    margin: 0 5px 5px 0;
+                    padding: 4px 10px;
+                    font-size: 10px;
+                    color: $content-color;
+                    &.active {
+                        background-color: $green;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}
+// end variant 1
+
+// event varient 2
+#eventHistoryVareint_1 {
+    .nav-tabs {
+        .form-group {
+            @include transform-top-center-align;
+            right: 10px;
+            p {
+                padding: 5px;
+                background-color: $white;
+                color: $darkTheme;
+                @include transform-top-center-align;
+                left: 2px;
+                right: 32px;
+                margin-bottom: 0;
+                font-weight: 600;
+            }
+            .form-control {
+                box-shadow: 0px 0px 3px rgba(0,0,0,0.1) !important;
+                padding: 5px;
+                &::-webkit-calendar-picker-indicator {
+                    opacity: 0;
+                    font-size: 15px;
+                    z-index: 2;
+                    cursor: pointer;
+                }
+            }
+            .calender-icon {
+                @include transform-top-center-align;
+                right: 10px;
+                color: $darkTheme;
+            }
+            &:before {
+                content: "";
+                @include position-top-bottom;
+                right: 30px;
+                border-right: 1px solid $border-color;
+            }
+        }
+    }
+    .widget-list-body {
+        li {
+            ol {
+                li {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+}
+
+
+// variant 1
+.event-box{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background-color: white;
+    .event-list{
+        ul{
+            .list-item{
+                position: relative;
+                padding-bottom: 30px;
+                &::before{
+                    content: "";
+                    border-bottom: 2px dashed $border-color !important;
+                    position: absolute;
+                    width: 100%;
+                    bottom: 15px;
+                }
+                .date-box{
+                    padding: 0 10px;
+                    p{
+                        font: {
+                            size: 15px;
+                            weight: 600;
+                        };
+                        color: $text-color;
+                    }
+                }
+                .event-list-item{
+                    @include card-box;
+                    margin-bottom: 0;
+                    padding: 10px 0;
+                    .event-content-item {
+                        padding: 10px 15px;
+                        span {
+                            color: $content-color;
+                            margin-bottom: 5px;
+                            font-size: 11px;
+                            @include text-truncate;
+                        }
+                        h6 {
+                            color: $text-color;
+                            margin: 0;
+                            font: {
+                                size: 12px;
+                                weight:600;
+                            };
+                            i{
+                                font: {
+                                    size: 16px;
+                                    weight:600;
+                                };
+                                margin-left: 5px;
+                                cursor: pointer;
+                                color: $content-color !important;
+                            }
+                        }
+                        ol{
+                            li{
+                                position: relative;
+                                display: inline-block;
+                                margin-right: 10px;
+                                .device-action-icon {
+                                    height: 25px;
+                                    width: 25px;
+                                    @include border-radius-50;
+                                    background: #fff;
+                                    border: 2px solid #e6e6e6;
+                                    img{
+                                        @include image;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// Variant 2
+
+.variant-box{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background-color: white;
+    .event-list{
+        .event-list-head{
+            padding: 10px;
+            position: relative;
+            .date-range{
+                width: 200px;
+                background: rgb(243, 243, 243);
+                padding: 10px;
+                border-radius: 5px;
+                p{
+                    font: {
+                        size: 12px;
+                        weight: 600;
+                    };
+                    color: $content-color;
+                    margin: 0;
+                    span{
+                        font-weight: 600;
+                    }
+                }
+            }
+            .btn-transparent-gray{
+                @include transform-top-center-align;
+                right: 15px;
+            }
+        }
+        ul{
+            .list-item{
+                margin-bottom: 20px;
+                padding-top: 30px;
+                border-top: 2px dashed $border-color;
+                .date-box{
+                    text-align: center;
+                    position: relative;
+                    border-right: 2px solid $border-color;
+                    height: 100%;
+                    
+                    p{
+                        font: {
+                            size: 11px;
+                            weight: 600;
+                        };
+                        margin: 0;
+                        color: $content-color;
+                    }
+                    h3{
+                        font: {
+                            
+                            weight: 600;
+                        };
+                        margin: 0;
+                        color: $content-color;
+                    }
+                }
+                .event-list-item{
+                    margin-bottom: 0;
+                    padding: 10px 0 0 40px;
+                    background-color: $white;
+                    box-shadow: none;
+                    margin: 0;
+                    .event-content-item {
+                        padding: 0;
+                        h6 {
+                            &.badge-content{
+                                width: 100%;
+                                border-radius: 5px;
+                                text-align: center;
+                            }
+                            font: {
+                                size: 12px;
+                                weight:600;
+                            };
+                            padding:7px 5px;
+                            @include text-truncate;
+                            i{
+                                font: {
+                                    size: 14px;
+                                    weight:600;
+                                };
+                                margin-right: 5px;
+                            }
+                        }
+                        ol{
+                            li{
+                                position: relative;
+                                display: inline-block;
+                                margin-right: 10px;
+                                .device-action-icon {
+                                    height: 35px;
+                                    width: 35px;
+                                    @include border-radius-50;
+                                    background: #fff;
+                                    border: 2px solid #e6e6e6;
+                                    img{
+                                        @include image;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Variant 3
+
+.variant-box{
+    .event-list{
+        .event-content{
+            border: 1px solid $border-color;
+            .event-head{
+                padding: 10px 20px;
+                position: relative;
+                border-bottom: 1px solid $border-color;
+                h5{
+                    font: {
+                        weight:600;
+                    };
+                    color: $text-color;
+                    margin: 0;
+                    line-height: 2em;
+                    span{
+                        color: $content-color;
+                    }
+                }
+            }
+            .event-list-item{
+                height: calc(100vh - 164px);
+                ul{
+                    padding: 30px 0 0 50px; 
+                    li{
+                        padding: 10px;
+                        position: relative;
+                        border-top: 1px solid $border-color;
+                        &.active{
+                            border-top: 1px solid $theme;
+                        }
+                        &.active .event-time p{
+                            color: $theme;
+                        }
+                        .event-time{
+                            position: absolute;
+                            left: -40px;
+                            top:-9px;
+                            p {
+                                font: {
+                                    size: 11px;
+                                    weight:600;
+                                };
+                                color: $content-color;
+                                margin-bottom: 5px;
+                                @include text-truncate;
+                            }
+                        }
+                        .badge-content{
+                            width: 100%;
+                            height: 60px;
+                            padding:5px 10px;
+                            border-radius: 5px;
+                            h6{
+                                color: $text-color;
+                                margin: 0;
+                                line-height: 2em;
+                                @include text-truncate;
+                                font: {
+                                    size: 12px;
+                                    weight:600;
+                                };
+                                i{
+                                    font: {
+                                        size: 16px;
+                                        weight:600;
+                                    };
+                                    margin-right: 5px;
+                                    color: $content-color;
+                                    cursor: pointer;
+                                }
+                            }
+                            .badge-group {
+                                span{
+                                    font: {
+                                        size: 12px;
+                                        weight:600;
+                                    };
+                                    color: $text-color;
+                                }
+                                .badge {
+                                    font: {
+                                        size: 11px;
+                                        weight:600;
+                                    };
+                                    margin: 0 5px 5px 0;
+                                    padding: 5px 10px;
+                                    color: $white;
+                                    background-color: $cyan;
+                                    &.active {
+                                        background-color: $green;
+                                        color: $white;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .calender-box{
+            .month {
+                padding: 70px 25px;
+                width: 100%;
+                background: #1abc9c;
+                text-align: center;
+                ul{
+                    li {
+                        color: $white;
+                        font-size: 20px;
+                        text-transform: uppercase;
+                        letter-spacing: 3px;
+                        &.prev {
+                            float: left;
+                            padding-top: 10px;
+                        }
+                        &.next {
+                            float: right;
+                            padding-top: 10px;
+                        }
+                        p{
+                            font-size: 13px;
+                        }
+                    }
+                }
+            }
+            .weekdays {
+                margin: 0;
+                padding: 10px 0;
+                background-color: #ddd;
+                li {
+                    display: inline-block;
+                    width: 13.6%;
+                    color: $text-color;
+                    text-align: center;
+                }
+            }
+            .days {
+                padding: 15px 0;
+                background: #eee;
+                margin: 0;
+                li {
+                    display: inline-block;
+                    width: 13.6%;
+                    text-align: center;
+                    margin-bottom: 10px;
+                    font-size:12px;
+                    color: $content-color;
+                    .active {
+                        padding: 5px;
+                        @include border-radius-50;
+                        background: #1abc9c;
+                        color: white !important
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+.badge-blue{
+    border-left:2px solid #1a88ff;
+    background-color: #f2f6fa;
+}
+.badge-yellow{
+    border-left: 2px solid #e69600;
+    background-color: #fff3dd;
+}
+.badge-green{
+    border-left: 2px solid #28a445;
+    background-color: #edfdf1;
+}

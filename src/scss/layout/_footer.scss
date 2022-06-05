@@ -1,0 +1,67 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+@import "../utils/mixins";
+
+.footer {
+    position: fixed;
+    left: 200px;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    border-top: 1px solid $border-color;
+    z-index: 5;
+    transition: left 0.3s;
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+
+    li {
+        font-size: 11px;
+        color: $content-color;
+        padding: 0 10px;
+        border-right: 1px solid $content-color;
+        &:last-of-type {
+            border-right: 0;
+        }
+    }
+
+    .form-group-block {
+        @include transform-top-center-align;
+        right: 10px;
+        .form-group {
+            display: inline-block;
+            margin: 0;
+            .form-control {
+                display: inline-block;
+                width: 160px;
+                font-size: 12px;
+                padding: 3px 8px;
+                min-height: auto;
+                margin-left: 5px;
+            }
+            .form-control-multi-select {
+                width: 160px;
+                margin-left: 10px;
+                .form-control-multi-select__control {
+                    .form-control-multi-select__value-container.css-1hwfws3 {
+                        padding: 0 8px 0 8px;
+                    }
+                }
+                .form-control-multi-select__indicators {
+                    .form-control-multi-select__indicator {
+                        padding: 0 5px;
+                    }
+                }
+            }
+            .btn-transparent {
+                border-radius: 4px;
+                width: 23px;
+                height: 23px;
+                margin-left: 5px;
+                font-size: 12px;
+                padding: 0;
+                display: none;
+            }
+        }
+    }
+}

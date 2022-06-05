@@ -1,0 +1,193 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+@import "../utils/mixins";
+
+.content-table {
+    .table {
+        color: $text-color;
+        border-radius: 4px;
+        border-collapse: separate;
+        border-spacing: 2px;
+        border: 0;
+        thead, tbody {
+            th, td {
+                font: {
+                    size: 12px;
+                };
+                padding: 10px 15px;
+                border-radius: 4px;
+                max-width: 0;
+                word-break: break-word;
+            }
+        }
+        thead {
+            th {
+                background-color: $light-bg;
+                color: $darkTheme;
+                border-bottom-width: 1px;
+                font-weight: 500;
+            }
+        }
+        .form-control {
+            padding: 7px 15px;
+            min-height: auto;
+        }
+        .list-phone-input {
+            .react-tel-input {
+                .form-control {
+                    padding: 0 0 0 30px;
+                }
+                .flag-dropdown {
+                    top: 0;
+                }
+            }
+        }
+        .content-table-image {
+            width: 40px;
+            border-right: 1px solid $border-color;
+            @include position-top-bottom;
+            left: 0;
+            @include flex-center-align;
+            img {
+                @include image;
+                padding: 2px;
+            }
+        }
+        .table-disabled {
+            background-color: #f0f2f4;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+    }
+}
+
+//  React table
+.custom-react-table {
+    border: 0;
+    &.animated {
+        animation-duration: 0.5s;
+    }
+
+    .rt-thead {
+        background-color: $light-bg;
+        .rt-th {
+            font: {
+                size: 13px;
+                weight: 500;
+            };
+            padding: 12px 15px;
+            text-align: left;
+            color: $darkTheme;
+            border-right: 1px solid $border-color !important;
+            &:last-of-type {
+                border-right: 0 !important;
+            }
+        }
+        &.-header {
+            border: 1px solid $border-color;
+            border-radius: 6px 6px 0 0;
+            .rt-th {
+                &:first-of-type {
+                    border-radius: 6px 0 0 0;
+                }
+                &:last-of-type {
+                    border-radius: 0 6px 0 0;
+                }
+            }
+        }
+        &.-filters {
+            border: {
+                width: 0 1px 1px 1px;
+                style: solid;
+                color: $border-color;
+            };
+        }
+    }
+
+    .rt-tbody {
+        border: {
+            width: 0 1px 0 1px;
+            style: solid;
+            color: $border-color;
+        };
+        .rt-tr-group {
+            border-bottom-color: $border-color;
+            @include transition-3s;
+            .rt-td {
+                padding: 12px 15px;
+                font: {
+                    size: 12px;
+                    weight: 400;
+                };
+                color: $content-color;
+                position: relative;
+                border-right: 1px solid $border-color;
+                &:last-of-type {
+                    border: 0;
+                }
+            }
+            &:hover {
+                @include transition-3s;
+                background-color: $light-bg;
+                .rt-td {
+                    color: $theme;
+                }
+            }
+        }
+    }
+
+    .-pagination {
+        border: 1px solid $border-color;
+        padding: 5px 10px;
+        border-radius: 0 0 6px 6px;
+
+        .-pageInfo, .-pageSizeOptions {
+            font-size: 12px;
+        }
+        .-previous, .-next {
+            flex: none;
+            .btn-light {
+                width: 30px;
+                height: 100%;
+                padding: 0;
+                transition: all ease-in-out 0.3s;
+                font-size: 16px;
+                &.disabled {
+                    cursor: not-allowed;
+                }
+            }
+        }
+        .-center {
+            flex: none;
+            width: 300px;
+        }
+    }
+
+    .rt-noData {
+        top: 100px;
+        right: 1px;
+        bottom: 2px;
+        left: 1px;
+        transform: none;
+        text-align: center;
+        padding-top: 17%;
+        font: {
+            size: 18px;
+            weight: 300;
+        };
+        color: $content-color;
+    }
+
+    .-loading {
+        top: 50px;
+        div {
+            font: {
+                size: 18px;
+                weight: 300;
+            };
+            color:$theme;
+        }
+    }
+}

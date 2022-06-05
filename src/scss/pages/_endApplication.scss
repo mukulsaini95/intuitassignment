@@ -1,0 +1,32 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+@import "../utils/mixins";
+
+.side-nav-app-wrapper {
+    .side-nav-menu-header {
+        padding: 18px 12px;
+        position: relative;
+        .side-nav-menu-logo {
+            width: 40px;
+            height: 40px;
+            padding: 2px;
+            border: 1px solid $border-color;
+            border-radius: 4px;
+            img {
+                @include image;
+                object-fit: fill;
+            }
+        }
+        h5 {
+            color: $white;
+            font-weight: 600;
+            @include transform-top-center-align;
+            left: 60px;
+        }
+    }
+}
+.content-item-app {
+
+}

@@ -1,0 +1,311 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+@import "../utils/mixins";
+
+.card-view-list {
+    @include list-style-none;
+    @include display-flex;
+    li {
+        padding: 0 5px;
+        flex: 0 0 25%;
+        max-width: 25%;
+        .card-view-box {
+            @include transition-3s;
+            @include card-box;
+            margin-bottom: 10px;
+
+            &:hover {
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                @include transition-3s;
+                .card-view-body {
+                    background-color: $light-bg;
+                    @include transition-3s;
+                    h6 {
+                        color: $theme;
+                    }
+                }
+            }
+
+            .card-view-header {
+                position: relative;
+                padding: 10px 40px 10px 15px;
+                border-bottom: 1px solid $border-color;
+                height: 42px;
+                .alert {
+                    font: {
+                        weight: 600;
+                        size: 10px;
+                    }
+                    line-height: normal;
+                    padding: 2px 8px;
+                    border-width: 2px;
+                    border-radius: 10px;
+                }
+
+                .dropdown {
+                    @include transform-top-center-align;
+                    right: 10px;
+                    z-index: 4;
+                    .dropdown-menu {
+                        @include card-box;
+                        margin: 0;
+                        position: absolute !important;
+                        left: initial !important;
+                        right: 0 !important;
+                        top: initial !important;
+                        transform:initial !important;
+                        border: 0;
+                        padding: 7px;
+                        .dropdown-item {
+                            font-size: 12px;
+                            color: $text-color;
+                            padding: 7px 10px;
+                            border-radius: 4px;
+                            i {
+                                margin-right: 10px;
+                                font-size: 11px;
+                                color: $content-color;
+                            }
+                            &:hover {
+                                background-color: $light-bg;
+                                color: $theme;
+                                text-decoration: underline;
+                                i {
+                                    color: $theme;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .card-view-initial {
+                    margin-top: -5px;
+                    span {
+                        width: 28px;
+                        height: 28px;
+                        @include border-radius-50;
+                        border: 1px solid $border-color;
+                        font-size: 14px;
+                        margin-right: 5px;
+                        @include flex-center-align;
+                        color: $content-color;
+                        &.active {
+                            border-color: $content-color;
+                            background-color: $green;
+                            color: $white;
+                        }
+                    }
+                }
+
+                .card-view-header-status {
+                    position: absolute;
+                    top: 3px;
+                    bottom: 3px;
+                    left: 0;
+                    width: 4px;
+                    border-radius: 5px;
+                    &.bg-light {
+                        background-color: #c2c2d6 !important;
+                    }
+                }
+            }
+
+            .card-view-body {
+                padding: 15px 15px 10px 15px;
+                position: relative;
+                @include transition-3s;
+                .card-view-icon {
+                    width: 60px;
+                    height: 60px;
+                    padding: 10px;
+                    border: 1px solid $border-color;
+                    position: relative;
+                    @include border-radius-50;
+                    margin-bottom: 15px;
+                    i {
+                        @include transform-center-align;
+                        font-size: 20px;
+                        color: $darkTheme;
+                    }
+                    img {
+                        @include image;
+                    }
+                    span {
+                        @include position-top-right;
+                        right: -50px;
+                        color: $content-color;
+                        font-size: 12px;
+                        i {
+                            font-size: 14px;
+                            @include transform-none;
+                        }
+                    }
+                    &.card-view-icon-right {
+                        position: absolute;
+                        top: 15px;
+                        right: 15px;
+                        span {
+                            top: initial;
+                            right: initial;
+                            bottom: 0;
+                            left: -30px;
+                        }
+                    }
+                    .card-view-alarm-count {
+                        @include position-bottom-right;
+                        i {
+                            font-size: 16px;
+                            color: $content-color;
+                            @include transform-none;
+                        }
+                        .badge {
+                            width: 22px;
+                            height: 22px;
+                            border-radius: 50%;
+                            padding: 0;
+                            font-size: 9px;
+                            text-align: center;
+                            line-height: 20px;
+                            position: absolute;
+                            top: -8px;
+                            right: -15px;
+                            border: 1px solid $border-color;
+                        }
+                    }
+                }
+
+                h6 {
+                    margin-bottom: 5px;
+                    color: $theme;
+                    font: {
+                        weight: 600;
+                    }
+                    @include text-truncate;
+                    .copy-button {
+                        padding: 0;
+                        text-align: left;
+                        width: 18px;
+                    }
+                }
+
+                p, a {
+                    color: $text-color;
+                    margin-bottom: 5px;
+                    font-size: 12px;
+                    @include text-truncate;
+                }
+
+                a, a:hover {
+                    color: $blue;
+                }
+
+                h6 i,
+                p i {
+                    width: 22px;
+                    color: $border-color-dark;
+                    font-size: 12px;
+                }
+
+                .badge-pill {
+                    padding: 3px 10px;
+                    line-height: normal;
+                    font: {
+                        size: 10px;
+                        weight: 600;
+                    }
+                    border: 1px solid transparent;
+                    &.badge-light {
+                        background-color: $light-bg;
+                        border-color: $border-color;
+                    }
+                }
+
+                .card-view-pill-wrapper {
+                    padding-right: 30px;
+                    position: relative;
+                    .card-view-pill {
+                        margin: 0;
+                        padding: 5px 8px;
+                        display: inline-block;
+                        line-height: normal;
+                        font-size: 10px;
+                        font-weight: 600;
+                        border: 1px solid transparent;
+                        max-width: 100%;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                    .card-view-pill-count {
+                        width: 28px;
+                        height: 28px;
+                        border-radius: 50%;
+                        background-color: $white;
+                        border: 1px solid $border-color;
+                        color: var(--theme);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 11px;
+                        font-weight: 600;
+                        @include position-top-right;
+                        &:hover {
+                            cursor: pointer;
+                            background-color: var(--theme);
+                            color: $white;
+                        }
+                    }
+                    .dropdown-menu {
+                        padding: 15px;
+                        width: 200px;
+                        top: -7px !important;
+                        left: calc(100% + 15px) !important;
+                        transform: none !important;
+                        border: 1px solid $border-color;
+                        border-radius: 6px;
+                        margin: 0;
+                        &::before {
+                            content: "";
+                            font-family: "Font Awesome 5 Pro";
+                            position: absolute;
+                            top: 0;
+                            left: -11px;
+                            font-size: 28px;
+                            color: $content-color;
+                            font-weight: 900;
+                        }
+                    }
+                }
+            }
+
+            .card-view-footer {
+                border-top: 1px solid $border-color;
+                position: relative;
+                h6 {
+                    color: $darkTheme;
+                    font-weight: 600;
+                    margin: 0 0 5px;
+                    font-size: 12px;
+                    @include text-truncate;
+                }
+                p {
+                    strong {
+                        color: $theme;
+                    }
+                    font-size: 10px;
+                    margin-bottom: 3px;
+                    @include text-truncate;
+                }
+                &::before {
+                    content: "";
+                    @include transform-center-align;
+                    width: 1px;
+                    background-color: $border-color;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}

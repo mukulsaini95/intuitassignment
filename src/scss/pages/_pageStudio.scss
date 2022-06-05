@@ -1,0 +1,230 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+@import "../utils/mixins";
+
+// page grid layout
+.page-grid-wrapper {
+    position: relative;
+    .page-grid-layout {
+        height: calc(100vh - 109px);
+        background: url(https://content.iot83.com/m83/other/gridlines.png) no-repeat;
+        background-size: cover;
+        overflow-y: auto;
+        overflow-x: hidden;
+        border: 3px solid $white;
+        border-radius: 5px;
+    }
+
+    .grid-top-left-corner,
+    .grid-top-right-corner,
+    .grid-bottom-left-corner,
+    .grid-bottom-right-corner {
+        height: 16px;
+        width: 16px;
+        border: 4px solid $content-color;
+    }
+    .grid-top-left-corner {
+        @include position-top-left;
+        border-right: 0;
+        border-bottom: 0;
+        border-radius: 5px 0 0 0;
+    }
+    .grid-top-right-corner {
+        @include position-top-right;
+        border-bottom:0;
+        border-left: 0;
+        border-radius: 0 5px 0 0;
+    }
+    .grid-bottom-left-corner {
+        @include position-bottom-left;
+        border-top:0;
+        border-right: 0;
+        border-radius: 0 0 0 5px;
+    }
+    .grid-bottom-right-corner {
+        @include position-bottom-right;
+        border-left: 0;
+        border-top: 0;
+        border-radius: 0 0 5px 0;
+    }
+}
+// end page grid layout
+
+// page base settings
+.page-setting-item {
+    margin-bottom: 30px;
+    h6 {
+        color: $darkTheme;
+        margin-bottom: 15px;
+        text-decoration: underline;
+        text-align: center;
+    }
+
+    .size-list {
+        position: relative;
+        &::before {
+            content: "";
+            @include position-left-right;
+            top: 5px;
+            height: 1px;
+            background-color: $border-color;
+        }
+        li {
+            flex: 0 0 16.64%;
+            max-width: 16.64%;
+            position: relative;
+            text-align: center;
+            color: $content-color;
+            cursor: pointer;
+            padding-top: 12px;
+            @include transition-3s;
+            font: {
+                size: 12px;
+                weight: 600;
+            };
+            span {
+                content: "";
+                @include transform-left-center-align;
+                top: 0;
+                height: 10px;
+                width: 10px;
+                border-radius: 50%;
+                background-color: $border-color;
+            }
+            &.active {
+                @include transition-3s;
+                color: $theme;
+                span {
+                    background-color: $darkTheme;
+                }
+            }
+        }
+        &.width-size-list {
+            margin-top: 25px;
+            i {
+                @include transform-left-center-align;
+                top: -15px;
+                font-size: 17px;
+            }
+        }
+    }
+
+    .btn-light {
+        min-width: 40px;
+        margin-right: 10px;
+        &.active {
+            i {
+                color: $theme;
+            }
+            border-color: $theme !important;
+        }
+    }
+
+    .form-group-label {
+        .toggle-switch-wrapper {
+            @include transform-top-center-align;
+            right: 0;
+        }
+    }
+
+    .page-theme-list {
+        li {
+            width: 32px;
+            height: 32px;
+            border: 2px solid $border-color;
+            border-radius: 4px;
+            margin: 0 5px 5px 0;
+            @include transition-3s;
+            cursor: pointer;
+            &.active {
+                border-color: $content-color;
+                border-radius: 50%;
+            }
+            &:last-of-type {
+                margin-right: 0;
+            }
+            &:nth-child(1) {
+                background-image: linear-gradient(45deg, #67b7dc 0%,#67b7dc 50%,#c767dc 50%,#c767dc 100%);
+            }
+            &:nth-child(2) {
+                background-image: linear-gradient(45deg, #283250 0%,#283250 50%,#902c2d 50%,#902c2d 100%);
+            }
+            &:nth-child(3) {
+                background-image: linear-gradient(45deg, #E91E63 0%,#E91E63 50%,#9C27B0 50%,#9C27B0 100%);
+            }
+            &:nth-child(4) {
+                background-image: linear-gradient(45deg, #F3C300 0%,#F3C300 50%,#875692 50%,#875692 100%);
+            }
+            &:nth-child(5) {
+                background-image: linear-gradient(45deg, #67b7dc 0%,#67b7dc 50%,#c767dc 50%,#c767dc 100%);
+            }
+            &:nth-child(6) {
+                background-image: linear-gradient(45deg, #bec4f8 0%,#bec4f8 50%,#a5abee 50%,#a5abee 100%);
+            }
+            &:nth-child(7) {
+                background-image: linear-gradient(45deg, #3a1302 0%,#3a1302 50%,#c79f59 50%,#c79f59 100%);
+            }
+            &:nth-child(8) {
+                background-image: linear-gradient(45deg, #65738e 0%,#65738e 50%,#523b58 50%,#523b58 100%);
+            }
+        }
+    }
+    .btn-primary {
+        border-radius: 20px;
+        width: 100%;
+        padding: 5px 10px;
+    }
+}
+// end page base settings
+
+// react grid layout
+.page-grid-layout {
+    .react-grid-item {
+        .react-resizable-handle {
+            background-image: none;
+            &::after {
+                width: 10px;
+                height: 10px;
+                border-right: 4px solid $content-color;
+                border-bottom: 4px solid $content-color;
+            }
+        }
+    }
+}
+// end react grid layout
+
+// page preview
+.page-preview-wrapper {
+    padding: 5px;
+    height: calc(100% - 70px);
+    .widget-wrapper {
+        border: 0;
+        background-color: transparent;
+        box-shadow: none;
+        .widget-header {
+            display: none;
+        }
+        .widget-body {
+            padding: 0;
+        }
+    }
+}
+// end page preview
+
+//  expand widget modal
+.full-widget-body {
+    .widget-body {
+        height: 500px;
+        overflow: auto;
+        .widget-chart-box,
+        .custom-react-table {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+// end
+
+

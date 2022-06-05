@@ -1,0 +1,81 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+@import "../utils/mixins";
+
+.equation-wrapper {
+    .alert {
+        .button-group {
+            @include transform-top-center-align;
+            right: 10px;
+        }
+    }
+    ul {
+        position: relative;
+        padding-right: 60px;
+        .button-group {
+            @include transform-top-center-align;
+            right: 0;
+        }
+        .input-group {
+            padding-right: 10px;
+            .form-control {
+                padding: 11px 0;
+                text-align: center;
+            }
+            .input-group-text {
+                padding: 0 7px;
+                height: 42px;
+                color: $content-color;
+                font-size: 11px;
+                font-weight: 600;
+            }
+            .input-group-append {
+                .input-group-text {
+                    border-right: 0;
+                    border-radius: 4px 0 0 4px;
+                }
+            }
+            .input-group-prepend {
+                .input-group-text {
+                    border-left: 0;
+                    border-radius: 0 4px 4px 0;
+                }
+            }
+        }
+    }
+    .equation-chart-box {
+        border: 1px solid $border-color;
+        padding: 10px;
+        height: 189px;
+        border-radius: 4px;
+    }
+}
+
+.equation-slider {
+    border: 1px dashed $border-color;
+    border-radius: 4px;
+    background-color: $light-bg;
+    padding: 12px;
+    margin-bottom: 12px;
+    p {
+        color: $text-color;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+    .css-yvszuv-Slider {
+        background-color: $border-color;
+        height: 12px;
+        .css-3g5hux-Slider {
+            background-color: $theme;
+        }
+        .css-2y8pfi-Slider {
+            cursor: pointer;
+            &::after {
+                background-color: $darkTheme;
+                box-shadow: none;
+            }
+        }
+    }
+}

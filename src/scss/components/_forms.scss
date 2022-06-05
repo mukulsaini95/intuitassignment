@@ -1,0 +1,801 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+@import "../utils/mixins";
+
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+
+    .form-control {
+        padding: 10px 12px;
+        border: 1px solid $border-color;
+        border-radius: 4px;
+        font-size: 13px;
+        color: $text-color;
+        height: auto;
+        line-height: normal;
+        &:focus {
+            box-shadow: none;
+            z-index: initial;
+        }
+        &::placeholder {
+            color: $light-gray;
+        }
+        &:disabled,
+        &[readonly] {
+            background-color: #f0f2f4;
+            cursor: not-allowed;
+        }
+        &.form-control-active {
+            border-color: $theme !important;
+        }
+    }
+
+    select.form-control {
+        height: auto !important;
+        cursor: pointer;
+        min-height: 40px;
+        &:disabled,
+        &[readonly] {
+            cursor: not-allowed !important;
+        }
+    }
+
+    .form-group-error {
+        color: $red;
+        font-size: 9px;
+        float: left;
+    }
+
+    .form-control-tooltip-icon {
+        @include position-top-right;
+        top: 30px;
+        padding: 5px 7px;
+        i {
+            margin: 0;
+        }
+    }
+}
+
+.form-group-label {
+    display: block;
+    color: $label-color;
+    margin-bottom: 7px;
+    position: relative;
+    font: {
+        size: 12px;
+        weight: 400;
+    }
+    .form-group-required {
+        color: $red;
+        font-size: 7px;
+        margin-left: 5px;
+    }
+    .form-group-label-info {
+        color: $blue;
+        margin-left: 5px;
+    }
+    &.form-group-label-top {
+        position: absolute;
+        top: -5px;
+        left: 5px;
+        margin: 0;
+        font-size: 10px;
+        z-index: 1;
+        padding: 0 5px;
+        background-color: $white;
+    }
+    .btn-link {
+        font-size: 12px;
+        float: right;
+        padding: 0;
+    }
+}
+
+.phone-input {
+    .react-tel-input {
+        .form-control {
+            height: auto;
+            width: 100%;
+            border: 1px solid #e6e6e6;
+            font-size: 13px;
+            line-height: 21px;
+        }
+        .flag-dropdown {
+            border: 0;
+            border-right: 1px solid $border-color;
+            width: 40px;
+            @include flex-center-align;
+            top: 1px;
+            left: 1px;
+            bottom: 1px;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        .country-list {
+            top: 1px;
+            left: 1px;
+        }
+    }
+}
+
+.react-tagsinput {
+    border-color: $border-color;
+    border-radius: 4px;
+    .react-tagsinput-tag {
+        font-size: 12px;
+        padding: 5px 25px 5px 10px;
+        font-weight: 500;
+        background-color: $light-bg;
+        color: $theme;
+        border-color: $theme;
+        border-radius: 20px;
+        position: relative;
+        max-width: 100%;
+        word-break: break-all;
+        .react-tagsinput-remove {
+            color: $text-color;
+            @include transform-top-center-align;
+            right: 0;
+            padding: 2px 5px;
+            border-left: 1px solid $border-color;
+            font-size: 16px;
+            border-radius: 0 15px 15px 0;
+            @include transition-3s;
+            &:hover {
+                color: $black;
+                background-color: #ffc2b3;
+                @include transition-3s;
+            }
+        }
+    }
+
+    .react-tagsinput-input {
+        width: auto;
+        color: $text-color;
+        min-width: 200px;
+    }
+}
+
+.react-tag-input-wrapper {
+    .react-tag-input {
+        border-color: $border-color;
+        min-height: auto;
+        padding: 5px;
+        .react-tag-input__tag {
+            color: $theme;
+            background-color: $light-bg;
+            font-size: 12px;
+            padding: 0;
+            border-radius: 12px;
+            .react-tag-input__tag__content {
+                padding: 7px 10px;
+            }
+            .react-tag-input__tag__remove {
+                background-color: $border-color;
+                border-radius: 0 12px 12px 0;
+                border-left: 1px solid $border-color;
+                color: $text-color;
+                cursor: pointer;
+                height: 26px;
+                width: 24px;
+            }
+        }
+
+        .react-tag-input__input {
+            height: 26px;
+            font-size: 13px;
+            color: $text-color;
+        }
+    }
+}
+
+.form-content-wrapper {
+    padding-right: 280px;
+
+    .form-content-box {
+        @include card-box;
+        .form-content-header {
+            padding: 12px 20px;
+            border-bottom: 1px solid $border-color;
+            position: relative;
+            p {
+                font: {
+                    size: 13px;
+                    weight: 600;
+                }
+                color: $text-color;
+                margin: 0;
+                line-height: 20px;
+                small {
+                    float: right;
+                    color: $cyan;
+                    font-weight: 600;
+                    font-size: 10px;
+                }
+            }
+            &::before {
+                content: "";
+                @include transform-top-center-align;
+                left: 0;
+                width: 4px;
+                background-color: $theme;
+                border-radius: 5px;
+                height: calc(100% - 15px);
+            }
+            .toggle-switch-wrapper,
+            button {
+                @include transform-top-center-align;
+                right: 10px;
+            }
+            .form-content-error {
+                position: absolute;
+                margin-left: 10px;
+                font-size: 11px;
+                color: $red;
+                i {
+                    margin-right: 5px;
+                }
+            }
+            .form-group {
+                @include transform-top-center-align;
+                right: 20px;
+                select.form-control {
+                    padding: 5px 10px;
+                    font-size: 12px;
+                    min-height: auto;
+                }
+            }
+        }
+
+        .form-content-body {
+            padding: 20px;
+            .form-content-body-overlay {
+                position: absolute;
+                top: 45px;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-color: rgba(255, 255, 255, 0.85);
+                border-radius: 5px;
+                z-index: 2;
+                @include flex-center-align;
+            }
+            .form-editor {
+                height: calc(100vh - 170px);
+                position: relative;
+                .btn-light {
+                    @include position-bottom-right;
+                    background-color: transparent;
+                    color: $white;
+                    margin: 0 10px 10px 0;
+                }
+            }
+        }
+
+        .form-content-footer {
+            border-top: 1px solid $border-color;
+            padding: 10px 25px;
+            text-align: right;
+            .btn {
+                min-width: 100px;
+            }
+            .next-button {
+                @include transform-top-center-align;
+                right: 30px;
+                padding: 8px 30px;
+            }
+            .previous-button {
+                padding: 8px 30px;
+            }
+        }
+    }
+
+    &.form-content-wrapper-left {
+        padding-right: 0;
+        padding-left: 280px;
+    }
+
+    &.form-content-wrapper-both {
+        padding-right: 280px;
+        padding-left: 280px;
+    }
+}
+
+.form-info-wrapper {
+    @include card-box;
+    margin-bottom: 0;
+    padding-bottom: 100px;
+    position: fixed;
+    top: 62px;
+    right: 12px;
+    bottom: 49px;
+    width: 270px;
+
+    .form-info-header {
+        padding: 12px 20px;
+        border-bottom: 1px solid $border-color;
+        border-radius: 5px 5px 0 0;
+        position: relative;
+        h5 {
+            color: $text-color;
+            margin: 0;
+            line-height: 20px;
+            font: {
+                size: 13px;
+                weight: 600;
+            }
+            .btn-close {
+                padding: 0 10px 0 0;
+                &:hover {
+                    color: $theme;
+                }
+            }
+        }
+        &::before {
+            content: "";
+            @include transform-top-center-align;
+            left: 0;
+            width: 4px;
+            background-color: $theme;
+            border-radius: 5px;
+            height: calc(100% - 15px);
+        }
+    }
+
+    .form-info-body {
+        padding: 15px;
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        &.form-info-body-adjust {
+            height: calc(100% - 45px);
+        }
+
+        .form-info-icon {
+            width: 80px;
+            height: 80px;
+            @include border-radius-50;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 0 auto 20px;
+            padding: 5px;
+            img {
+                @include image;
+            }
+        }
+
+        h5 {
+            color: $text-color;
+            padding-left: 12px;
+            margin-bottom: 15px;
+            font: {
+                size: 15px;
+                weight: 600;
+            }
+            position: relative;
+            &::before {
+                content: "";
+                @include transform-top-center-align;
+                left: 0;
+                width: 4px;
+                height: 100%;
+                background-color: $theme;
+                border-radius: 5px;
+            }
+        }
+
+        .form-info-list {
+            padding-left: 15px;
+            li {
+                list-style: square;
+                h6 {
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: $text-color;
+                    margin-bottom: 3px;
+                    @include transition-3s;
+                    position: relative;
+                    .btn-link {
+                        @include position-top-right;
+                        padding: 0;
+                    }
+                }
+                p {
+                    font-size: 11px;
+                    margin-bottom: 7px;
+                    color: $content-color;
+                    word-break: break-word;
+                }
+                &.form-info-list-selected {
+                    border: 1px solid $border-color;
+                    border-radius: 4px;
+                    background-color: $light-bg;
+                    padding: 5px 10px;
+                    margin-bottom: 10px;
+                }
+                &:hover {
+                    h6 {
+                        color: $theme;
+                        cursor: pointer;
+                        @include transition-3s;
+                    }
+                }
+            }
+        }
+
+        .form-attribute-list {
+            li {
+                flex: 0 0 50%;
+                max-width: 50%;
+                padding: 5px 3px;
+                .form-attribute-item {
+                    text-align: center;
+                    @include transition-3s;
+                    border-radius: 4px;
+                    padding: 10px;
+                    border: 1px solid $border-color;
+                    .form-attribute-image {
+                        font-size: 20px;
+                        color: $green;
+                        img {
+                            height: 35px;
+                            margin-bottom: 5px;
+                        }
+                    }
+                    p {
+                        font-size: 12px;
+                        margin: 5px 0 0;
+                        color: $content-color;
+                    }
+                    &:hover {
+                        background-color: $light-bg;
+                        border-color: $theme;
+                    }
+                }
+            }
+        }
+    }
+
+    .form-info-footer {
+        position: absolute;
+        bottom: 12px;
+        left: 15px;
+        right: 15px;
+        text-align: center;
+        background-color: $white;
+        .btn {
+            width: 100%;
+            margin-bottom: 5px;
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .action-tabs {
+        margin-bottom: 0;
+        .nav-link {
+            min-width: auto;
+            padding: 14px 10px 14px 10px;
+            border-radius: 0;
+            border: 0;
+            font-size: 12px;
+            line-height: normal;
+        }
+        &.action-tabs-image {
+            .nav-link {
+                padding: 9px 10px;
+                img {
+                    height: 27px;
+                }
+            }
+        }
+    }
+
+    &.form-info-wrapper-left {
+        right: initial;
+        left: 212px;
+    }
+}
+
+//  input group
+.input-group {
+    .input-group-append {
+        .btn {
+            margin-left: 2px;
+            border-radius: 4px !important;
+            z-index: initial;
+        }
+    }
+    .input-group-text {
+        background-color: $light-bg;
+        font-size: 12px;
+        color: $black;
+        border-color: $border-color;
+    }
+}
+//  end input group
+
+// file uploader
+.file-upload-box {
+    border: 2px dashed $border-color;
+    border-radius: 5px;
+    position: relative;
+    padding: 3px;
+    height: 125px;
+    background-color: $white;
+    cursor: pointer;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    input {
+        @include position-all-side;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        z-index: 2;
+    }
+    .file-upload-form {
+        p {
+            color: $content-color;
+            margin: 0;
+            text-align: center;
+            @include transform-center-align;
+            width: 100%;
+        }
+    }
+    .file-upload-loader {
+        @include transform-center-align;
+        text-align: center;
+        img {
+            width: 150px;
+            height: 12px;
+            border-radius: 6px;
+        }
+        p {
+            margin: 5px 0 0;
+            color: $content-color;
+        }
+    }
+    .file-upload-preview {
+        text-align: center;
+        height: 100%;
+        img {
+            @include image;
+        }
+        button {
+            @include position-bottom-right;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: $white;
+            z-index: 2;
+        }
+        p {
+            @include transform-center-align;
+            font-size: 14px;
+            color: $content-color;
+            @include text-truncate;
+            margin: 0;
+        }
+    }
+}
+// end file uploader
+
+// custom react select
+.form-control-multi-select {
+    .form-control-multi-select__control {
+        border-color: $border-color;
+        border-radius: 5px;
+        min-height: auto;
+        width: 100%;
+        &:hover {
+            border-color: $border-color-dark;
+        }
+        &.form-control-multi-select__control--is-focused {
+            box-shadow: none;
+        }
+        .form-control-multi-select__value-container {
+            padding: 5px 8px;
+        }
+    }
+    .form-control-multi-select__placeholder {
+        margin: 6px 2px;
+        line-height: 16px;
+        font-size: 13px;
+        position: relative;
+        top: initial;
+        transform: none;
+        color: $content-color;
+    }
+    .form-control-multi-select__single-value {
+        margin: 6px 2px;
+        line-height: 16px;
+        font-size: 13px;
+        position: relative;
+        top: initial;
+        transform: none;
+        color: $text-color;
+        max-width: calc(100% - 12px);
+    }
+    .form-control-multi-select__multi-value {
+        border-radius: 12px;
+        .form-control-multi-select__multi-value__label {
+            color: $theme;
+            background-color: $light-bg;
+            font-size: 12px;
+            padding: 3px 10px;
+            border-radius: 12px 0 0 12px;
+        }
+        .form-control-multi-select__multi-value__remove {
+            background-color: $border-color;
+            border-radius: 0 12px 12px 0;
+            border-left: 1px solid $border-color;
+            color: $text-color;
+            cursor: pointer;
+        }
+    }
+    .css-1g6gooi {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .form-control-multi-select__indicators {
+        .form-control-multi-select__indicator {
+            color: $content-color;
+            padding: 8px 5px;
+            svg {
+                height: 16px;
+                width: 16px;
+            }
+        }
+        .form-control-multi-select__indicator-separator {
+            margin: 0;
+        }
+    }
+    .form-control-multi-select__menu {
+        .form-control-multi-select__menu-list {
+            max-height: 200px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        .form-control-multi-select__option {
+            font-size: 12px;
+            color: $text-color;
+            padding: 8px;
+            border-bottom: 1px solid $border-color;
+            background-color: $white;
+            @include transition-3s;
+            border-radius: 4px;
+            &:last-of-type {
+                border-bottom: 0;
+            }
+            &.form-control-multi-select__option--is-focused {
+                color: $theme;
+                background-color: $light-bg;
+                cursor: pointer;
+                box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1);
+                @include transition-3s;
+                border-radius: 4px;
+            }
+            &.form-control-multi-select__option--is-disabled {
+                background-color: #f0f2f4;
+                cursor: not-allowed;
+            }
+        }
+        .form-control-multi-select__menu-notice {
+            color: $content-color;
+            font-size: 13px;
+        }
+    }
+}
+
+.css-14ojxsb-control {
+    border-radius: 5px;
+    background-color: #f0f2f4;
+    border-color: $border-color;
+    .css-1hwfws3 {
+        padding: 5px 8px;
+    }
+}
+// end custom react select
+
+//  ace editor
+.ace-editor-wrapper {
+    .ace-editor {
+        border: 1px solid $border-color;
+        border-radius: 5px;
+    }    
+    .button-group {
+        margin: 5px 0 15px;
+        text-align: right;
+        .btn-light {
+            padding: 5px 0;
+            width: 40px;
+            margin-right: 5px;
+        }
+    }
+}
+.ace-editor {
+    height: 300px;
+    position: relative;
+    .ace_gutter,
+    .ace_comment.ace_placeholder {
+        z-index: initial !important;
+    }
+    .ace-monokai .ace_print-margin {
+        display: none;
+    }
+    .ace_editor,
+    .ace_editor span,
+    .ace_editor textarea {
+        font-size: 15px !important;
+        font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro",
+        monospace !important;
+    }
+}
+// end ace editor
+
+// json editor
+.json-input-box {
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    [name="outer-box"] {
+        height: 400px !important;
+        width: 100% !important;
+        border-radius: 4px;
+    }
+    [name="container"] {
+        height: 100% !important;
+        width: 100% !important;
+        border-radius: 4px;
+    }
+    [name="body"] {
+        background-color: $light-bg !important;
+        [name="labels"] {
+            border-right: 1px solid $border-color;
+            div {
+                color: $text-color !important;
+            }
+        }
+        span {
+            font-size: 14px !important;
+            color: $text-color !important;
+        }
+    }
+}
+// end json editor
+
+// react json editor
+.react-json-view {
+    border: 1px solid $border-color;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    padding: 10px;
+    span {
+        font-size: 13px;
+    }
+}
+// end react json editor
+
+// custom-append-form
+
+.custom-append-form {
+    .input-group {
+        .form-control {
+            border-radius: 4px !important;
+        }
+        .input-group-append {
+            margin-right: 10px;
+            button {
+                border-radius: 4px !important;
+            }
+        }
+        .input-group-prepend {
+            margin-left: 10px;
+            button {
+                border-radius: 4px !important;
+            }
+        }
+    }
+}

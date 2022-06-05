@@ -1,0 +1,157 @@
+
+
+@import "../utils/mixins";
+@import "../themes/variables";
+@import "../themes/theme";
+
+.faas-db-list {
+	z-index: 8;
+	ul {
+		@include list-style-none;
+		@include flex-center-align;
+		li {
+			width: 32px;
+			height: 32px;
+			border: 2px solid $border-color;
+			@include border-radius-50;
+			margin-right: 5px;
+			background-color: $light-bg;
+			cursor: pointer;
+			&:last-of-type {
+				margin: 0;
+			}
+			&::after {
+				display: none;
+			}
+			img {
+				@include image;
+				padding: 3px;
+			}
+			&:hover, &.active {
+				border-color: $border-color-dark;
+				background-color: $white;
+			}
+			&.disabled {
+				cursor: pointer;
+				pointer-events: none;
+				background-color: $border-color;
+			}
+		}
+	}
+	.dropdown-menu {
+		@include card-box;
+		border: 0;
+		padding: 10px;
+		width: 350px;
+		height: 300px;
+		right: 0 !important;
+		left: initial !important;
+		transform: none !important;
+		top: 37px !important;
+		button {
+			top: 3px !important;
+			transform: none !important;
+			z-index: 1;
+			margin-right: 5px;
+		}
+	}
+}
+
+.param-list-wrapper {
+	position: relative;
+	height: calc(100vh - 184px);
+	overflow-y: auto;
+
+	.param-list-box {
+		border-radius: 5px;
+		border: 1px solid $border-color;
+		padding: 10px;
+		position: relative;
+		margin-bottom: 15px;
+		@include transition-3s;
+
+		.param-list-icon {
+			@include position-top-right;
+			top: -5px;
+		}
+
+		h6 {
+			font-size: 14px;
+			color: $theme;
+			font-weight: 600;
+			@include text-truncate;
+		}
+
+		p {
+			font-size: 11px;
+			margin-bottom: 5px;
+			color: $content-color;
+			@include text-truncate;
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+			strong {
+				color: $text-color;
+				margin-right: 3px;
+			}
+		}
+
+		.button-group {
+			opacity: 0;
+			@include position-all-side;
+			background-color: rgba(255, 255, 255, 0.7);
+			border-radius: 5px;
+			@include transition-3s;
+			@include flex-center-align;
+		}
+
+		&:hover {
+			@include transition-3s;
+			cursor: pointer;
+			.button-group {
+				opacity: 1;
+				@include transition-3s;
+			}
+		}
+	}
+
+	.param-empty-list {
+		@include transform-top-center-align;
+		left: 0;
+		right: 0;
+		text-align: center;
+
+		p {
+			color: $content-color;
+			margin: 0;
+		}
+	}
+}
+
+.function-invoke-wrapper {
+	box-shadow: none;
+	height: 400px;
+	border: 1px solid $border-color;
+	margin: 0;
+	overflow-y: auto;
+	.card-body, .card-loader, .card-message {
+		height: 100%;
+		overflow-y: auto;
+	}
+	pre {
+		white-space: pre-line;
+	}
+	.content-table {
+		.json-input-box {
+			[name="outer-box"] {
+				height: 180px !important;
+			}
+		}
+	}
+	.btn-light {
+		@include position-bottom-right;
+		background-color: transparent;
+		color: $white;
+		margin: 0 10px 10px 0;
+	}
+}

@@ -1,0 +1,98 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+@import "../utils/mixins";
+
+#faceRecognition {
+  .form-content-wrapper {
+    padding-right: 550px;
+    .form-content-header {
+      // padding-right: 150px;
+    }
+    .form-content-toggle {
+      .form-content-body:first-child {
+        border-right: 1px solid $border-color;
+        position: relative;
+        .btn-light {
+          background-color: transparent;
+          border: 0;
+          padding: 0;
+          position: absolute;
+          top: 18px;
+          right: 20px;
+        }
+      }
+    }
+    .upload-image-button {
+      
+    }
+    .form-info-toggle {
+      position: relative;
+      .btn-light {
+        background-color: transparent;
+        padding: 0;
+        border: 0;
+        @include position-top-right;
+      }
+    }
+    .form-content-body {
+
+    }
+  }
+}
+.recognition-wrapper {
+	height: 100%;
+	border: 1px solid $border-color;
+	padding: 10px;
+	overflow-y: auto;
+	border-radius: 4px;
+}
+.recognition-button-group {
+	text-align: center;
+	min-width: 100px;
+	i {
+		display: block;
+	}
+  }
+
+.recognition-image-list {
+  height: 203px;
+  overflow-y: auto;
+  li {
+    padding: 3px 5px;
+    .recognition-image-content {
+      border: 1px solid $border-color;
+      border-radius: 4px;
+      position: relative;
+      @include transition-3s;
+      .recognition-image-box {
+        height: 60px;
+        padding: 5px;
+        img {
+          @include image;
+        }
+      }
+      p {
+        padding: 3px 5px;
+        font-size: 11px;
+        color: $darkTheme;
+        margin-bottom: 0;
+        text-align: center;
+        border-top: 1px solid $border-color;
+        border-radius: 0 0 4px 4px;
+      }
+      .btn-transparent {
+        @include transform-center-align;
+        display: none;
+      }
+      &:hover {
+        background-color: $light-bg;
+        @include transition-3s;
+        .btn-transparent {
+          display: block;
+        }
+      }
+    }
+  }
+}

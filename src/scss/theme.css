@@ -1,0 +1,53 @@
+
+
+:root {
+
+   /* ----------------------- Base Theme Start ----------------------- */
+
+   --darkTheme: #002966;
+   --theme: #07a0e3;
+   
+   /* ----------------------- Base Theme End ----------------------- */
+
+
+   /* -----------------------  For Light Background Start ----------------------- */
+
+   --light-bg: rgba(231, 244, 253, 0.65);
+
+   /* -----------------------  For Light Background End ----------------------- */
+
+
+   /* ----------------------- Nav Theme Start ----------------------- */
+
+   --nav-bg: #002966;
+   --nav-text: #d2d9e0;
+   --nav-text-active: #ffffff;
+   --nav-sub-menu-border: #879bab;
+   --nav-menu-footer-border: #2471A3;
+   --nav-dropdown-initials: #ffffff;
+
+   /* ----------------------- Nav Theme End ----------------------- */
+
+
+   /* ----------------------- Text Theme Start ----------------------- */
+
+   --content-color: #808080;
+   --text-color: #4a4a4a;
+
+   /* -----------------------  Text Theme End ----------------------- */
+
+
+   /* -----------------------  Form Theme Start ----------------------- */
+
+   --label-color: #466081;
+
+   /* -----------------------  Form Theme End ----------------------- */
+
+
+   /* ----------------------- Border Colour Start ----------------------- */
+
+   --border-color: #e6e6e6;
+   --border-color-dark: #bfbfbf;
+   
+   /* ----------------------- Border Colour End ----------------------- */
+}

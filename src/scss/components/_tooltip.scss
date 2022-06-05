@@ -1,0 +1,82 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+@import "../utils/mixins";
+
+.tooltip-wrapper {
+    position: fixed;
+    padding: 6px 12px;
+    font-size: 11px;
+    color: $white;
+    background-color: rgba(0, 0, 0, .8);
+    border: 1px solid $black;
+    border-radius: 4px;
+    visibility: hidden;
+    z-index: 10000;
+    max-width: 220px;
+    word-break: break-word;
+    &::before {
+        position: absolute;
+        font-size: 15px;
+        color: rgba(0, 0, 0, .8);
+    }
+    &[data-place=top-center]::before,
+    &[data-place=bottom-center]::before {
+        @include transform-left-center-align;
+    }
+    &[data-place=center-right]::before,
+    &[data-place=center-left]::before {
+        @include transform-top-center-align;
+    }
+    &[data-place=top-center]::before {
+        content: "\25BC";
+        top: calc(100% - 8px);
+    }
+    &[data-place=center-right]::before {
+        content: "\25C4";
+        right: calc(100% - 3px);
+    }
+    &[data-place=bottom-center]::before {
+        content: "\25B2";
+        bottom: calc(100% - 8px);
+    }
+    &[data-place=center-left]::before {
+        content: "\25BA";
+        left: calc(100% - 3px);
+    }
+    &[data-place=top-right]::before,
+    &[data-place=top-left]::before,
+    &[data-place=bottom-right]::before,
+    &[data-place=bottom-left]::before {
+        content: "\27A4";
+    }
+    &[data-place=top-right]::before,
+    &[data-place=top-left]::before {
+        top: calc(100% - 11px);
+    }
+    &[data-place=top-right]::before,
+    &[data-place=bottom-right]::before {
+        right: calc(100% - 7px);
+    }
+    &[data-place=bottom-right]::before,
+    &[data-place=bottom-left]::before {
+        bottom: calc(100% - 11px);
+    }
+    &[data-place=top-left]::before,
+    &[data-place=bottom-left]::before {
+        left: calc(100% - 7px);
+    }
+    &[data-place=top-right]::before {
+        transform: rotate(135deg);
+    }
+    &[data-place=top-left]::before {
+        transform: rotate(45deg);
+    }
+    &[data-place=bottom-right]::before {
+        transform: rotate(-135deg);
+    }
+    &[data-place=bottom-left]::before {
+        transform: rotate(-45deg);
+    }
+}

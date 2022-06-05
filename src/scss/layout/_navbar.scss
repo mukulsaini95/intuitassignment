@@ -1,0 +1,291 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+@import "../utils/mixins";
+
+.side-nav-wrapper {
+    @include position-top-bottom;
+    position: fixed;
+    left: 0;
+    z-index: 6;
+    max-width: 200px;
+    min-width: 200px;
+    background : $darkTheme;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s;
+}
+
+.side-nav-menu {
+    height: 100%;
+    position: relative;
+
+    .side-nav-menu-header {
+        padding: 12px 20px;
+        position: relative;
+        .side-nav-menu-logo {
+            height: 48px;
+            border-radius: 5px;
+            img {
+                @include image;
+                @include transition-3s;
+            }
+        }
+        .btn-transparent {
+            position: absolute;
+            top: 10px;
+            right: -12px;
+        }
+    }
+
+    .side-nav-menu-list {
+        height: calc(100% - 130px);
+        padding-right: 5px;
+        padding-bottom: 15px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        li {
+            position: relative;
+            a {
+                strong {
+                    font-weight: normal;
+                }
+                font-size: 11px;
+                padding: 12px 20px;
+                color: #d2d9e0;
+                display: block;
+                transition: all .3s ease-in-out;
+                position: relative;
+                cursor: pointer;
+                border: 1px solid transparent;
+                @include transition-3s;
+                @include text-truncate;
+
+                &:hover {
+                    color: $theme;
+                    text-decoration: underline;
+                    @include transition-3s;
+                }
+                &.active {
+                    color: $white;
+                    border-color: $theme;
+                    border-left-color: transparent;
+                    border-radius: 0 10px 10px 0;
+                    box-shadow: inset 1px 1px 25px 1px rgba(0, 0, 0, 0.8);
+                    @include transition-3s;
+                }
+                &.active:hover {
+                    text-decoration: none;
+                    cursor: default;
+                }
+                span {
+                    display: inline-block;
+                    min-width: 24px;
+                    font-size: 11px;
+                }
+                .side-nav-collapse {
+                    position: absolute;
+                    top: 15px;
+                    right: 5px;
+                    transform: rotate(180deg);
+                    @include transition-3s;
+                }
+                &.collapsed {
+                    .side-nav-collapse {
+                        transform: rotate(0);
+                        @include transition-3s;
+                    }
+                }
+            }
+        }
+
+        .side-nav-menu-list-header {
+            padding: 10px 20px;
+            font-size: 11px;
+            font-weight: 600;
+            color: $theme;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            @include text-truncate;
+            width: 100%;
+        }
+
+        .side-nav-sub-menu {
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.065);
+            border-radius: 0 4px 4px 0;
+            a {
+                padding-left: 45px;
+                &::before {
+                    content: '';
+                    width: 4px;
+                    height: 4px;
+                    background-color: rgba(255, 255, 255, 0.4);
+                    @include border-radius-50;
+                    @include transform-top-center-align;
+                    left: 30px;
+                }
+            }
+        }
+
+        .side-nav-sub-inner-menu {
+            a {
+                padding-left: 60px;
+                padding-right: 5px;
+                &::before {
+                    border-radius: 0;
+                    left: 45px;
+                }
+            }
+        }
+    }
+
+    .side-nav-menu-footer {
+        border-top: 1px solid $theme;
+        @include position-bottom-left;
+        right: 0;
+        padding: 10px;
+
+        .dropdown-toggle {
+            padding: 8px 10px 8px 45px;
+            text-align: left;
+            color: #d2d9e0;
+            @include text-truncate;
+            position: relative;
+            width: 100%;
+            .dropdown-initials {
+                @include transform-top-center-align;
+                left: 0;
+            }
+            &::after {
+                display: none;
+            }
+        }
+        .dropdown-initials {
+            background-color: $theme;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            color: $white;
+            height: 36px;
+            width: 36px;
+            @include border-radius-50;
+            font: {
+                size: 15px;
+                weight: 600;
+            };
+            @include flex-center-align;
+            img {
+                @include image;
+                object-fit: cover;
+                border-radius: 50%;
+                padding: 0;
+            }
+        }
+        
+        .dropdown-menu {
+            top: 45px !important;
+            left: 50px !important;
+            min-width: 200px;
+            padding: 15px;
+            margin: 0;
+            border-radius: 10px;
+
+            &::before {
+                content: "\25C0";
+                position: absolute;
+                bottom: 15px;
+                left: -15px;
+                font-size: 19px;
+                color: $white;
+            }
+
+            .dropdown-menu-header {
+                text-align: center;
+                padding-bottom: 10px;
+                border-bottom: 1px solid $border-color;
+                text-transform: capitalize;
+                h6 {
+                    color: $darkTheme;
+                    font-weight: 600;
+                    margin-top: 10px;
+                }
+                p {
+                    font-size: 12px;
+                    color: $text-color;
+                    margin: 0;
+                }
+            }
+
+            .dropdown-menu-body {
+                a {
+                    text-align: center;;
+                    font-size: 12px;
+                    display: block;
+                    margin-bottom: 7px;
+                }
+                .btn-light {
+                    font-size: 12px;
+                    padding: 7px 10px;
+                    font-weight: 600;
+                    width: 100%;
+                    border-width: 2px;
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}
+
+// collapse navbar
+.side-nav-wrapper-collapse {
+    min-width: 80px;
+    max-width: 80px;
+    .side-nav-menu {
+        .side-nav-menu-header {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .side-nav-menu-list {
+            a {
+                strong {
+                    display: none;
+                }
+                span {
+                    font-size: 17px;
+                }
+                .side-nav-collapse {
+                    top: 20px;
+                }
+            }
+            .side-nav-sub-menu {
+                a {
+                    padding-left: 35px;
+                    strong {
+                        display: none;
+                    }
+                    &::before {
+                        left: 20px;
+                    }
+                    span {
+                        font-size: 13px;
+                    }
+                }
+
+            }
+            .side-nav-menu-list-header {
+                padding-left: 5px;
+                font-size: 10px;
+            }
+        }
+        .side-nav-menu-footer {
+            .dropdown-toggle {
+                color: transparent;
+                .dropdown-initials {
+                    left: 5px;
+                }
+            }
+        }
+    }
+}
+// end collapse navbar
+
+

@@ -1,0 +1,167 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+@import "../utils/mixins";
+
+.pac-container {
+    z-index: 1051 !important;
+}
+.location-map-wrapper {
+    p {
+        color: $orange;
+        font-weight: 600;
+        font-size: 11px;
+        text-align: center;
+    }
+    .location-map {
+        height: 100%;
+        border: 1px dashed $border-color;
+        border-radius: 5px;
+        padding: 5px;
+        background-color: $light-bg;
+        box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+    }
+}
+.auto-complete-box {
+    .form-control::placeholder {
+        color: $text-color;
+    }
+    .google-places-autocomplete {
+        border: 1px solid $border-color;
+        border-radius: 4px;
+        font-size: 13px;
+        color: $text-color;
+        .google-places-autocomplete__input {
+            margin-bottom: 0;
+        }
+    }
+}
+.gm-ui-hover-effect {
+    top: 0 !important;
+    right: 0 !important;
+    z-index: 6 !important;
+}
+.gm-ui-hover-effect img {
+    height: 22px !important;
+    width: 22px !important;
+    margin: 0 auto !important;
+}
+.gmnoprint {
+    top: initial !important;
+    bottom: 20px;
+    border: 2px solid $border-color-dark !important;
+    border-radius: 5px;
+}
+.gm-style-mtc {
+    div {
+        font-size: 12px !important;
+        color: $content-color !important;
+    }
+}
+.gm-control-active {
+    img {
+        width: 12px !important;
+        height: 12px !important;
+    }
+}
+.gm-fullscreen-control {
+    top: initial !important;
+    bottom: 70px !important;
+    border: 2px solid $border-color-dark !important;
+    border-radius: 5px;
+}
+.gm-style-iw.gm-style-iw-c {
+    padding: 5px 5px 0 !important;
+}
+.gm-style {
+    img[draggable="false"] {
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+
+// map marker
+.map-marker {
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    p {
+        color: $content-color;
+        margin-bottom: 5px;
+        font-size: 11px;
+        @include text-truncate;
+        line-height: normal;
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+        strong {
+            margin-right: 5px;
+            font-weight: 600;
+            color: $text-color;
+        }
+    }
+    .map-marker-header {
+        background-color: $light-bg;
+        padding: 7px 60px 7px 15px;
+        position: relative;
+        h6 {
+            color: $darkTheme;
+            margin: 0 0 5px;
+            font-weight: 600;
+            @include text-truncate;
+        }
+        .map-marker-status {
+            @include transform-top-center-align;
+            left: 0;
+            height: 60px;
+            width: 4px;
+            border-radius: 5px;
+        }
+        .map-marker-image {
+            width: 50px;
+            height: 50px;
+            border: 1px solid $border-color;
+            padding: 2px;
+            @include border-radius-50;
+            @include transform-top-center-align;
+            right: 10px;
+            img {
+                @include image;
+                @include border-radius-50;
+            }
+            span {
+                width: 12px;
+                height: 12px;
+                @include border-radius-50;
+                @include position-bottom-right;
+            }
+        }
+    }
+    .map-marker-body {
+        padding: 7px 15px;
+        li {
+            font-size: 11px;
+            color: $content-color;
+            flex: 0 0 25%;
+            max-width: 25%;
+            border: 1px solid $border-color;
+            border-radius: 4px;
+            padding: 5px;
+            text-align: center;
+            .badge {
+                font-weight: 400;
+                padding: 3px 10px;
+                font-size: 10px;
+                color: $white;
+                margin-left: 5px;
+                margin-bottom: 5px;
+            }
+        }
+        .btn {
+            padding: 0;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    }
+}
+// end map marker

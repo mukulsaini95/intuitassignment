@@ -1,7 +1,14 @@
 .App {
   text-align: center;
 }
-
+#root{
+  height: inherit;
+  width: inherit;
+}
+html,body{
+  height: 100%;
+  width: 100%;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -11,6 +18,38 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+#counter{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e6e6e7;
+  padding: 40px 0px;
+  width: 100%;
+}
+#counter .item{
+  background: #fff;
+  justify-content: center;
+  width: 200px;
+  height:100px;
+  padding: 35px 15px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 0px 38px -8px rgba(0,0,0,0.34);
+-moz-box-shadow: 0px 0px 38px -8px rgba(0,0,0,0.34);
+box-shadow: 0px 0px 38px -8px rgba(0,0,0,0.34);
+} 
+#counter .item .count{
+  color: #e8b12d;
+  margin-bottom: 5px;
+  font-size: 40px;
+}
+#counter .item h3{
+  color: #4f4e28;
+  text-transform: capitalize;
 }
 
 .App-header {

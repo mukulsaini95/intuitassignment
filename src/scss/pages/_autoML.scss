@@ -1,0 +1,36 @@
+#auto-ml {
+	.form-icon-wrapper {
+		text-align: center;
+		width: 110px;
+		height: 110px;
+		border-radius: 50%;
+		box-shadow: 2px 2px 4px rgb(0 0 0 / 10%);
+		margin: 0 auto 45px auto;
+		padding: 5px;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			object-position: center;
+			opacity: 0.5;
+		}
+	}
+	.form-content-box {
+		.form-btns .btn {
+			min-width: 100px;
+		}
+	}
+	.successfull-steps-text p {
+		font-size: 12px;
+		color: #28a745;
+		border: 1px solid #28a745;
+		border-bottom: 3px solid #28a745;
+		max-width: 350px;
+		border-radius: 5px;
+		padding: 3px;
+		margin: 10px auto;
+		strong {
+			font-weight: 700;
+		}
+	}
+}

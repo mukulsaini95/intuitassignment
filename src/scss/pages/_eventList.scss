@@ -1,0 +1,428 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+@import "../utils/mixins";
+
+.condition-box {
+  border: 1px dashed $border-color;
+  border-radius: 4px;
+  padding: 40px 15px 0;
+  position: relative;
+  margin-top: 10px;
+  background-color: $light-bg;
+
+  .condition-select {
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    .form-control {
+      padding: 5px 15px;
+      width: auto;
+      display: inline-block;
+      min-height: auto;
+    }
+    .btn-primary {
+      padding: 3px 8px;
+      margin-left: 10px;
+      display: inline-block;
+    }
+  }
+
+  .condition-box-list {
+    padding: 30px 15px 15px;
+    margin-bottom: 30px;
+    border: 1px dashed $border-color;
+    position: relative;
+    border-radius: 5px;
+    background-color: $white;
+
+    .form-group-label {
+      padding-right: 10px;
+    }
+    ul {
+      padding-right: 30px;
+      position: relative;
+      margin-bottom: 10px;
+      li {
+        padding-right: 10px;
+      }
+      .button-group {
+        @include transform-top-center-align;
+        right: 0;
+      }
+    }
+    &:nth-last-child(2) {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.condition-box-event {
+  .form-group-label {
+    margin: 0;
+  }
+  .form-control {
+    width: 75px !important;
+    margin: 0 7px;
+    padding: 0;
+    text-align: center;
+    border-width: 0 0 1px 0;
+  }
+}
+
+.action-tabs {
+  margin-bottom: 20px;
+  ul {
+    position: relative;
+    li {
+      .nav-link {
+        font-size: 11px;
+        color: $text-color;
+        border: 1px solid $border-color;
+        padding: 10px 20px 10px 10px;
+        min-width: 140px;
+        position: relative;
+        text-align: center;
+        border-radius: 8px 8px 0 0;
+        text-transform: uppercase;
+        i {
+          margin-right: 5px;
+        }
+        &:hover {
+          cursor: pointer;
+          color: $theme;
+          text-decoration: underline;
+        }
+        .badge {
+          font-size: 9px;
+          padding: 2px 7px;
+          color: $text-color;
+          background-color: $white;
+          border: 1px solid $border-color;
+          margin: 0 0 0 5px;
+        }
+      }
+      &.active .nav-link {
+        background-color: $darkTheme;
+        @include transition-3s;
+        cursor: pointer;
+        color: $white;
+        border-radius: 8px 8px 0 0;
+        &:hover {
+          cursor: default;
+          text-decoration: none;
+        }
+        &::before {
+          content: "";
+          width: 70%;
+          height: 4px;
+          border-radius: 4px;
+          background-color: $theme;
+          @include transform-left-center-align;
+          bottom: 0;
+        }
+      }
+      &.disabled .nav-link {
+        cursor: not-allowed;
+        background-color: $border-color;
+        border-color: $border-color-dark;
+        border-radius: 8px 8px 0 0;
+        &:hover {
+          cursor: not-allowed;
+          text-decoration: none;
+          color: $text-color;
+        }
+      }
+    }
+
+    .btn-link {
+      @include transform-top-center-align;
+      right: 0;
+    }
+  }
+}
+
+.action-event-tabs {
+  ul {
+    li {
+      .nav-link {
+        min-width: auto;
+        padding: 10px;
+      }
+    }
+  }
+}
+
+.action-tabs-table {
+  height: 309px;
+  overflow-y: auto;
+  .list-view-pill {
+    margin: 0;
+    padding: 5px 8px;
+    display: inline-block;
+    line-height: normal;
+    font : {
+      size: 10px;
+      weight: 600;
+    }
+    border: 1px solid transparent;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+#scrollableDiv {
+  .infinite-scroll-component {
+    margin-left: -10px;
+    width: calc(100% + 20px);
+    padding: 0 10px 15px;
+  }
+}
+
+.condition-line {
+  ul {
+    @include list-style-none;
+    position: relative;
+    margin: 0 120px 0;
+    @include flex-center-align;
+    &::before {
+      content: "";
+      @include position-top-left;
+      top: 5px;
+      width: 100%;
+      height: 1px;
+      border-radius: 5px;
+      background-color: $border-color;
+    }
+    li {
+      font-size: 11px;
+      position: relative;
+      color: $content-color;
+      padding: 15px 10px 0;
+      flex: 0 0 11.1%;
+      max-width: 11.1%;
+      text-align: center;
+      span {
+        width: 12px;
+        height: 12px;
+        @include border-radius-50;
+        @include transform-left-center-align;
+        top: 0;
+      }
+      &:first-of-type::before,
+      &:last-of-type::after {
+        content: "";
+        width: 5px;
+        height: 5px;
+        @include border-radius-50;
+        background-color: $border-color-dark;
+        position: absolute;
+        top: 3px;
+      }
+      &:first-of-type::before {
+        left: 0;
+      }
+      &:last-of-type::after {
+        right: 0;
+      }
+    }
+    strong {
+      position: absolute;
+      top: 0;
+      font-size: 12px;
+      font-weight: 600;
+      color: $darkTheme;
+      &:first-of-type {
+        left: -120px;
+      }
+      &:last-of-type {
+        right: -120px;
+      }
+    }
+  }
+}
+
+.event-config-list {
+  li:nth-child(2n) {
+    padding-left: 7px;
+  }
+  li:nth-child(2n + 1) {
+    padding-right: 7px;
+  }
+}
+
+// add actions
+.action-info {
+  @include card-box;
+  box-shadow: none;
+  border: 1px solid $border-color;
+  padding: 20px;
+  h5 {
+    margin-bottom: 15px;
+  }
+  p {
+    color: $text-color;
+    margin-bottom: 8px;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    strong {
+      color: $black;
+      font-weight: 700;
+    }
+  }
+}
+
+.action-add-box {
+  padding: 15px 15px 10px;
+  position: relative;
+  border: 1px dashed $border-color;
+  border-radius: 4px;
+  background-color: $light-bg;
+}
+
+.action-list {
+  border-bottom: 0;
+  li {
+    margin-bottom: 7px;
+    width: 100%;
+    .action-list-content {
+      position: relative;
+      cursor: pointer;
+      @include card-box;
+      margin: 0;
+      .action-list-icon {
+        @include transform-top-center-align;
+        right: 20px;
+        width: 35px;
+        height: 35px;
+        color: $theme;
+        border: 1px solid $border-color;
+        border-radius: 4px;
+        @include flex-center-align;
+        i {
+          font-size: 14px;
+        }
+      }
+      h6 {
+        font-weight: 600;
+        color: $darkTheme;
+        margin: 0;
+        padding: 20px;
+        border-bottom: 1px solid $border-color;
+        position: relative;
+      }
+      .action-badge-group {
+        .badge {
+          min-width: 25px;
+          font-size: 10px;
+          font-weight: 600;
+        }
+        p {
+          color: $content-color;
+          font-size: 10px;
+          margin-bottom: 0;
+        }
+      }
+      &:hover {
+        h6 {
+          text-decoration: underline;
+          color: $theme;
+        }
+      }
+    }
+    &.active {
+      .action-list-content {
+        cursor: default;
+        .action-list-icon {
+          background-color: $light-bg;
+          border-color: $theme;
+          i {
+            color: $theme !important;
+          }
+        }
+        h6 {
+          color: $theme;
+          text-decoration: none;
+        }
+        .action-badge-group {
+          background-color: $light-bg;
+        }
+        &::before {
+          content: "\f0da";
+          font-family: "Font Awesome 5 Pro";
+          font-weight: 900;
+          position: absolute;
+          top: 5px;
+          right: 8px;
+          color: $theme;
+          font-size: 32px;
+        }
+      }
+    }
+  }
+}
+
+#actionPage {
+  .list-view li {
+    transition: initial !important;
+  }
+}
+
+.action-tab-message {
+  height: calc(100vh - 111px);
+}
+
+#alertAction {
+  padding-right: 45px;
+  .form-control-tooltip-icon {
+    border: 1px solid $border-color;
+    height: 38px;
+    width: 38px;
+    top: 25px;
+    border-radius: 4px;
+    i {
+      @include transform-center-align;
+    }
+  }
+}
+
+ul.alert-pallet-color {
+  @include display-flex;
+  li {
+    height: 35px;
+    width: 35px;
+    border: 2px solid $border-color;
+    margin: 0 5px 5px 0;
+    border-radius: 4px;
+    position: relative;
+    @include transition-3s;
+    &::before {
+      content: "\f00c";
+      font-family: "Font Awesome 5 Pro";
+      @include transform-center-align;
+      font-size: 16px;
+      color: $darkTheme;
+      display: none;
+    }
+    &:hover,
+    &.active {
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+      @include transition-3s;
+      transform: translateY(-3px);
+      cursor: pointer;
+      &::before {
+        display: block;
+      }
+    }
+    &.active {
+      cursor: default;
+      border-color: $theme;
+    }
+  }
+}
+
+// and add actions

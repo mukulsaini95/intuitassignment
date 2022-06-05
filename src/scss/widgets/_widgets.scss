@@ -1,0 +1,224 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+@import "../utils/mixins";
+
+// widget box
+.widget-wrapper {
+    border: 1px dashed $border-color;
+    background-color: $white;
+    position: relative;
+    height: 100%;
+    cursor: all-scroll;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+
+    .widget-header {
+        background-color: $white;
+        padding: 8px 10px;
+        border-bottom: 1px solid $border-color;
+        border-radius: 6px 6px 0 0;
+        position: relative;
+
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            background-color: $theme;
+            border-radius: 10px;
+            position: absolute;
+            top: 7px;
+            bottom: 7px;
+            left: 0;
+        }
+        .widget-header-icon {
+            @include transform-top-center-align;
+            left: 15px;
+            border: 1px solid $border-color;
+            border-radius: 4px;
+            color: $theme;
+            font-size: 15px;
+            width: 32px;
+            height: 32px;
+            @include flex-center-align;
+        }
+        h6 {
+            margin-bottom: 0;
+            line-height: 18px;
+        }
+        p {
+            font-size: 11px;
+            color: $content-color;
+            margin: 0;
+            line-height: 14px;
+        }
+        &.widget-header-padding {
+            padding-left: 60px;
+        }
+    }
+
+    .widget-body {
+        padding: 15px;
+        height: calc(100% - 50px);
+
+        .widget-chart-box {
+            height: 100%;
+            width: 100%;
+        }
+        &.widget-body-full {
+            height: 100%;
+            padding: 0;
+        }
+        .widget-message {
+            @include position-all-side;
+            @include flex-center-align;
+            p {
+                font-size: 12px;
+                margin: 0;
+            }
+        }
+    }
+}
+.widget-button-group {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1;
+    li {
+        font-size: 13px;
+        padding: 0 10px;
+        color: $text-color;
+        &:last-of-type {
+            padding-right: 0;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+// end widget box
+
+// custom-legends
+.custom-legends {
+    @include list-style-none;
+    @include flex-center-align;
+    flex-wrap: wrap;
+    padding: 8px 0 0;
+    border-top: 1px solid $border-color;
+    &.legends-max-height {
+        height: 50px;
+        overflow-y: auto;
+    }
+    li {
+        @include flex-center-align;
+        margin: 0 25px 2px 0;
+        &:last-of-type {
+            margin: 3px 0;
+        }
+        i {
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        p {
+            margin: 0;
+            color: $content-color;
+            font: {
+                size: 12px;
+                weight: 500;
+            }
+            strong {
+                margin: 0 0 0 4px;
+            }
+        }
+    }
+
+    .legend-badge {
+        display: inline-block;
+        height: 12px;
+        width: 12px;
+        margin: 0 10px 0 0;
+        border-radius: 50%;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+}
+// end custom-legends
+
+// start chart tooltip
+.chart-tooltip {
+    p {
+        margin-bottom: 2px;
+        color: $content-color;
+        font: {
+            size: 12px;
+            weight: 600;
+        }
+        &:last-child {
+            margin: 0;
+        }
+        strong {
+            color: $text-color;
+            margin-bottom: 4px;
+        }
+    }
+}
+// end chart tooltip
+
+//  common tab view scss
+.widget-tab-wrapper {
+    @include card-box;
+    .nav-tabs {
+        position: relative;
+        background-color: $white;
+        border-top: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+        padding: 5px;
+        .nav-link {
+            color: $text-color;
+            font:{
+                size: 12px;
+                weight: 600;
+            }
+            color: $content-color;
+            position: relative;
+            @include transition-3s;
+            &.active {
+                color: $text-color;
+                border-color: transparent;
+                background-color: transparent;
+                @include transition-3s;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    bottom: 3px;
+                    left: 14px;
+                    border-bottom: 2px solid $theme;
+                    width: 18px;
+                }
+            }
+            &:hover {
+                border-color: transparent;
+                background-color: transparent;
+            }
+        }
+    }
+
+}
+
+//   end
+
+//  common circular icon
+.widget-circular-image {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 2px solid $border-color;
+    @include flex-center-align;
+    img {
+        @include image;
+        border-radius: 50%;
+    }
+}
+//   end
+
+

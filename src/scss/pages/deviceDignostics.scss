@@ -1,0 +1,81 @@
+
+
+@import "../themes/variables";
+@import "../themes/theme";
+@import "../utils/mixins";
+
+.diagnostics-content-body {
+    .form-info-body {
+        height: calc(100% - 45px);
+    }
+
+    .diagnostic-info-wrapper {
+        border: 1px solid $border-color;
+        padding: 10px;
+        border-radius: 4px;
+        height: calc(100% - 170px);
+        overflow-y: auto;
+        position: relative;
+
+        .diagnostic-info-content {
+            padding: 10px 5px;
+            border-bottom: 1px solid $border-color;
+            position: relative;
+
+            &:last-of-type {
+                border-bottom: 0;
+            }
+
+            .diagnostic-info-border {
+                width: 4px;
+                height: 90%;
+                @include transform-top-center-align;
+                left: 0;
+                border-radius: 5px;
+            }
+
+            p {
+                margin-bottom: 5px;
+                font-size: 11px;
+                color: $content-color;
+            }
+
+            .btn {
+                padding: 0;
+                text-align: left;
+                width: 100%;
+            }
+
+            .badge {
+                padding: 4px 10px;
+                line-height: normal;
+                font-weight: normal;
+                max-width: 100%;
+                @include text-truncate;
+                &.badge-light {
+                    border: 2px solid $border-color;
+                    background-color: $white;
+                }
+            }
+
+            .diagnostic-info-location {
+                padding-left: 55px;
+                position: relative;
+                img {
+                    width: 45px;
+                    height: 45px;
+                    border: 1px solid $border-color;
+                    border-radius: 4px;
+                    padding: 3px;
+                    @include position-top-left;
+                }
+            }
+        }
+
+    }
+
+    .diagnose-content-wrapper {
+        height: calc(100% - 58px);
+        margin: 0;
+    }
+}

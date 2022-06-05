@@ -1,0 +1,104 @@
+
+
+@import "../themes/variables";
+
+@mixin transform-center-align {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+@mixin transform-left-center-align {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+@mixin transform-top-center-align {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+@mixin transform-none {
+    position: relative;
+    top: initial;
+    right: initial;
+    bottom: initial;
+    left: initial;
+    transform: none;
+}
+@mixin display-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+@mixin flex-center-align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@mixin position-top-bottom {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+@mixin position-top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+@mixin position-top-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+@mixin position-bottom-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+@mixin position-bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+@mixin position-left-right {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+@mixin position-all-side {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+@mixin card-box {
+    position: relative;
+    border-radius: 5px;
+    background-color: $white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+@mixin border-radius-50 {
+    border-radius: 50%;
+}
+@mixin transition-3s {
+    transition: all ease-in-out 0.3s;
+}
+@mixin image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+@mixin text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+@mixin list-style-none {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
